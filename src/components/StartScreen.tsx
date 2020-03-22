@@ -1,5 +1,7 @@
 import React from 'react';
-import { Grommet } from 'grommet';
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
+import { Basket } from 'grommet-icons';
+
 
 /**
  * Start page of website
@@ -8,22 +10,37 @@ import { Grommet } from 'grommet';
 class StartScreen extends React.Component {
   render() {
     return (
-      <Grommet theme={theme}>
+      <Grommet theme={header}>
       <div className="StartScreen">
-        <header className="Header">
-        </header>
+      <Header background="brand">
+      <Menu label="SHOP" items={[{ label: 'Petfood'}]} />
+  <h1>pet store</h1>
+  <Button icon={<Basket />} hoverIndicator />
+</Header>
+<Main pad="large">
+  <h2>Petfood since 1999</h2>
+  <Paragraph>Pet Store is a online store with high quality petfood for cats and dogs</Paragraph>
+</Main>
+<Box height="large" width="large">
+  <Image 
+  fit="cover"
+  src="petstore.jpg"
+  />
+</Box>
         </div>
         </Grommet>
     )
   }
 }
 
-const theme = {
+const header = {
   global: {
     font: {
       family: 'Roboto',
-      size: '48px',
+      size: '15px',
+      color: "brand",
       height: '20px',
+      alignContent: 'center',
     },
   },
 };
