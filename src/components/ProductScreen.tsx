@@ -46,7 +46,7 @@ export interface Food {
         return (
             <Grommet theme={header}>
                 <div className="StartScreen">
-                   
+                    <List items={this.state.dcfood} />
                 </div>
             </Grommet>
         )
