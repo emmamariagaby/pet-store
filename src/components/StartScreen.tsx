@@ -8,7 +8,7 @@ import ProductScreen from './ProductScreen'
  * Start page of website
  */
 
-class StartScreen extends React.Component {
+class StartScreen extends React.Component{
   render() {
     return (
       <Grommet theme={header}>
@@ -29,6 +29,7 @@ class StartScreen extends React.Component {
   />
 </Box>
 <ProductScreen />
+
         </div>
         
         </Grommet>

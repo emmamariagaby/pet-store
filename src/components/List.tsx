@@ -4,22 +4,26 @@ import { Food } from './ProductScreen'
 
 interface Props {
     items: Food[]
-   
+    
+    addFood: (food: Food) => void
 }
 
 class List extends React.Component<Props> {
     
-    handleOnClick = () => {
-        
-    }
+   
     render () {
     return (
         <div>
             <ul>
-                {this.props.items.map((item) => <ListItem food={item} onButtonClick={this.handleOnClick}/>)}
+                {this.props.items.map((item) => { 
+                return <ListItem 
+                key={item.index}
+                food={item} 
+                addToCart={this.props.addFood}
+                />})};
             </ul>
         </div>
-    )
+        )
     }
 }
 

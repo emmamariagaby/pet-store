@@ -4,10 +4,24 @@ import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'gromm
 
 interface Props {
     food: Food
-    onButtonClick: () => void
+    addToCart: (food: Food) => void
 }
 
-class ListItem extends React.Component<Props> {
+interface State {
+  
+}
+
+
+class ListItem extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+
+        
+    }
+    handleClick(){
+      this.props.addToCart({type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, index: this.props.food.index})
+    }
+
     render() {
     return (
         <Grommet>   
@@ -19,7 +33,7 @@ class ListItem extends React.Component<Props> {
                 <li>{this.props.food.img}</li>
                 <Button
                 label="Add"
-                onClick={() => {}}
+                onClick={() => this.handleClick()}
                 />
             </Box>
         </Grommet>
