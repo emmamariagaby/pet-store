@@ -20,7 +20,9 @@ class CheckoutScreen extends React.Component<Props, State> {
     render() {
         return (
             <Grommet>
-                <h2>Din Varukorg</h2>
+                <Main pad="medium" justify="center" align="center">
+                    <h2>Your cart</h2>
+                </Main>
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="center" align="center"

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
 import List from './List';
 import CheckoutScreen from './CheckoutScreen/CheckoutScreen';
+import { Basket } from 'grommet-icons';
 
 /**
  * Product page with dog and cat food
@@ -73,15 +74,42 @@ export type Cart = {
 
       render() {
         return (
-            <Grommet>
+          <Grommet theme={header}>
+          <Header background="brand" pad="large">
+          <Menu label="MENU" items={[{ label: 'Home'}]} />
+      <h1>pet store</h1>
+      <Button icon={<Basket />} hoverIndicator />
+    </Header>
+           
                 <div className="ProductScreen">
-                    <h2>Djurfoder</h2>
+                  <Main pad="small" justify="center" align="center">
+                    <h2>ONLINE SHOP</h2>
+                    <h3>Add petfood to your cart</h3>
+                    </Main>
                     <List items={this.state.dcfood} addFood={this.addFood}/>
                     <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
+    
+    <Footer background="#DADADA" pad="small">
+  <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+  <Anchor label="INFORMATION" />
+</Footer>
                 </div>
             </Grommet>
         )
       }
     }
+
+    const header = {
+      global: {
+        font: {
+          family: 'Roboto',
+          size: '15px',
+          color: "brand",
+          height: '20px',
+          justify: 'center',
+          align: 'center'
+        },
+      },
+    };
 
 export default ProductScreen;
