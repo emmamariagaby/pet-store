@@ -1,8 +1,6 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Basket } from 'grommet-icons';
-import ProductScreen from './ProductScreen';
-
 
 /**
  * Start page of website
@@ -36,7 +34,6 @@ class StartScreen extends React.Component {
             <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
             <Anchor label="INFORMATION" />
           </Footer>
-          <ProductScreen />
         </div>
       </Grommet>
     )
