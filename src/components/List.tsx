@@ -1,5 +1,5 @@
 import React from 'react'
-import ListItem from './ListItem'
+import ListItem from '././ListItem/ListItem'
 import { Food } from './ProductScreen'
 
 interface Props {
@@ -17,7 +17,7 @@ class List extends React.Component<Props> {
             <ul>
                 {this.props.items.map((item) => { 
                 return <ListItem 
-                key={item.index}
+                key={item.id}
                 food={item} 
                 addToCart={this.props.addFood}
                 />})};
