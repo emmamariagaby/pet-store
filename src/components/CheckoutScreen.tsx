@@ -1,8 +1,9 @@
 import React from 'react';
-import { Cart } from './ProductScreen'
-import { Food } from './ProductScreen'
+import { Cart } from './App'
+import { Food } from './App'
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
 import { Basket } from 'grommet-icons';
+import CheckOutForm from './CheckOutForm'
 
 interface Props {
     cart: Cart[]
@@ -10,25 +11,33 @@ interface Props {
 }
 
 interface State {
+   
 }
 /**
  * Checkout page with chart, payment method and customer information
  */
 
 class CheckoutScreen extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.state = {
+           
+        }
+    }
+    
     render() {
         return (
-    //         <Grommet theme={header}>
-    //         <Header background="brand" pad="large">
-    //         <Menu label="MENU" items={[{ label: 'Home'}]} />
-    //     <h1>pet store</h1>
-    //     <Button icon={<Basket />} hoverIndicator />
-    //   </Header>
+            <Grommet theme={header}>
+            <Header background="brand" pad="large">
+            <Menu label="MENU" items={[{ label: 'Home'}]} />
+         <h1>pet store</h1>
+         <Button icon={<Basket />} hoverIndicator />
+       </Header>
 
-             <Grommet>
                 <Main pad="medium" justify="center" align="center">
                     <h2>Your cart</h2>
                 </Main>
+                
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="center" align="center"
@@ -59,36 +68,37 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     height="small"
                                     pad="small" margin="medium">
                                     <Button
-                                        label="Remove"
-                                        color='brand'
-                                        onClick={() => this.props.handleRemove(food)}
+                                    label="Remove"
+                                    color='brand'
+                                    onClick={() => this.props.handleRemove(food)}
                                     />
                                 </Box>
                             </Box>
                         </Box>
                     </>
                 ))}
-                    {/* <Footer background="#DADADA" pad="small">
+                <CheckOutForm />
+                   <Footer background="#DADADA" pad="small">
   <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
   <Anchor label="INFORMATION" />
-</Footer> */}
+</Footer> 
             </Grommet>
         )
     }
 
  }
 
-//  const header = {
-//     global: {
-//       font: {
-//         family: 'Roboto',
-//         size: '15px',
-//         color: "brand",
-//         height: '20px',
-//         justify: 'center',
-//         align: 'center'
-//       },
-//     },
-//   };
+ const header = {
+    global: {
+      font: {
+        family: 'Roboto',
+        size: '15px',
+        color: "brand",
+        height: '20px',
+        justify: 'center',
+        align: 'center'
+      },
+    },
+  };
   
  export default CheckoutScreen;
