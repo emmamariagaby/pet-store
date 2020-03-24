@@ -49,7 +49,8 @@ const header = {
       size: '15px',
       color: "brand",
       height: '20px',
-      alignContent: 'center',
+      justify: 'center',
+      align: 'center'
     },
   },
 };
