@@ -58,7 +58,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ***********************************************************************************
 
-GROMMET 
+GROMMET, 
 PART DESIGN SYSTEM, PART FRAMEWORK
 
 https://v2.grommet.io/
