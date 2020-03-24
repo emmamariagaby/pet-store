@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
 import List from './List';
-import CheckoutScreen from './CheckoutScreen/CheckoutScreen';
+import CheckoutScreen from './CheckoutScreen';
 import { Basket } from 'grommet-icons';
 
 /**

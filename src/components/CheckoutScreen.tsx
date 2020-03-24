@@ -1,8 +1,8 @@
 import React from 'react';
-import { Cart } from '../ProductScreen'
-import { Food } from '../ProductScreen'
-import './CheckoutScreen.css'
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
+import { Cart } from './ProductScreen'
+import { Food } from './ProductScreen'
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
+import { Basket } from 'grommet-icons';
 
 interface Props {
     cart: Cart[]
@@ -18,7 +18,14 @@ interface State {
  class CheckoutScreen extends React.Component<Props, State> {
     render() {
         return (
-            <Grommet>  
+    //         <Grommet theme={header}>
+    //         <Header background="brand" pad="large">
+    //         <Menu label="MENU" items={[{ label: 'Home'}]} />
+    //     <h1>pet store</h1>
+    //     <Button icon={<Basket />} hoverIndicator />
+    //   </Header>
+
+             <Grommet>
                 <Main pad="medium" justify="center" align="center">
                 <h2>Your cart</h2>
                 </Main>
@@ -61,9 +68,27 @@ interface State {
                 </Box>
                 </>
                 ))}
+                    {/* <Footer background="#DADADA" pad="small">
+  <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+  <Anchor label="INFORMATION" />
+</Footer> */}
             </Grommet>
         )
     }
 
  }
+
+//  const header = {
+//     global: {
+//       font: {
+//         family: 'Roboto',
+//         size: '15px',
+//         color: "brand",
+//         height: '20px',
+//         justify: 'center',
+//         align: 'center'
+//       },
+//     },
+//   };
+  
  export default CheckoutScreen;
