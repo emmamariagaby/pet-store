@@ -1,5 +1,5 @@
 import React from 'react'
-import { Food } from '../ProductScreen'
+import { Food } from '../App'
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
 import './PetFood.css'
 

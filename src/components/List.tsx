@@ -1,10 +1,9 @@
 import React from 'react'
-import { Food } from './ProductScreen'
+import { Food } from './App'
 import PetFood from './PetFood/PetFood';
 
 interface Props {
     items: Food[]
-    
     addFood: (food: Food) => void
 }
 
