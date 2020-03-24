@@ -7,7 +7,10 @@ import CheckOutForm from './CheckOutForm'
 
 interface Props {
     cart: Cart[]
+    food: Food
     handleRemove: (food: Food) => void
+    removeOne: (food: Food) => void
+    addOne: (food: Food) => void
 }
 
 interface State {
@@ -24,6 +27,11 @@ class CheckoutScreen extends React.Component<Props, State> {
            
         }
     }
+
+    onClick(){
+        this.props.addOne({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, count: this.props.food.count})
+      }
+
     
     render() {
         return (
@@ -71,6 +79,20 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     label="Remove"
                                     color='brand'
                                     onClick={() => this.props.handleRemove(food)}
+                                    />
+                                </Box>
+                                <Box justify="center" height="xlarge" width="small" direction="row"
+                                    pad="small" margin="medium">
+                                    <Button
+                                    label="+"
+                                    color='accent-3'
+                                    onClick={() => this.props.addOne(food)}
+                                    />
+                                    <span className="CartItem-count">{food.count}</span>
+                                    <Button
+                                    label="&ndash;"
+                                    color='accent-3'
+                                    onClick={() => this.props.removeOne(food)}
                                     />
                                 </Box>
                             </Box>

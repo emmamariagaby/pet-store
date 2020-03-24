@@ -12,12 +12,14 @@ export interface Food {
     type: string
     animal: string
     img: string
+    count: number
   }
 export type Cart = {
     id: number
     type: string
     animal: string
     img: string
+    count: number
   }
   
   interface Props {}
@@ -25,7 +27,7 @@ export type Cart = {
   interface State {
     dcfood: Food[]
     cart: Cart[]
-  
+    count: number
   }
 
 export default class App extends React.Component<Props, State> {
@@ -36,24 +38,29 @@ export default class App extends React.Component<Props, State> {
             id: 0,
             type: 'dry',
             animal: 'dog',
-            img: 'https://cdn.royalcanin-weshare-online.io/XiKc-mQBaxEApS7LrwSZ/v2/mini-dental-ccn-packshot?w=320&auto=compress&fm=jpg'
+            img: 'https://cdn.royalcanin-weshare-online.io/XiKc-mQBaxEApS7LrwSZ/v2/mini-dental-ccn-packshot?w=320&auto=compress&fm=jpg',
+            count: 0
           }, {
             id: 1,
             type: 'wet',
             animal: 'dog',
-            img: 'https://cdn.royalcanin-weshare-online.io/zCJQa2sBaxEApS7LRh5U/v80/ad-jack-russel-packshot-bhn18?w=320&auto=compress&fm=jpg'
+            img: 'https://cdn.royalcanin-weshare-online.io/zCJQa2sBaxEApS7LRh5U/v80/ad-jack-russel-packshot-bhn18?w=320&auto=compress&fm=jpg',
+            count: 0
           }, {
             id: 2,
             type: 'dry',
             animal: 'cat',
-            img: 'https://cdn.royalcanin-weshare-online.io/m2kUrmsBG95Xk-RB3Pu-/v4/hairskin-ne-fcn-packshot?w=320&auto=compress&fm=jpg'
+            img: 'https://cdn.royalcanin-weshare-online.io/m2kUrmsBG95Xk-RB3Pu-/v4/hairskin-ne-fcn-packshot?w=320&auto=compress&fm=jpg',
+            count: 0
           }, {
             id: 3,
             type: 'wet',
             animal: 'cat',
-            img: 'https://cdn.royalcanin-weshare-online.io/-Gkua2QBG95Xk-RBidKW/v2/16-kitten-sterilised-b1-ne?w=320&auto=compress&fm=jpg'
+            img: 'https://cdn.royalcanin-weshare-online.io/-Gkua2QBG95Xk-RBidKW/v2/16-kitten-sterilised-b1-ne?w=320&auto=compress&fm=jpg',
+            count: 0
         }],
-            cart: []
+            cart: [],
+            count: 0
         }
       }
 
@@ -72,6 +79,22 @@ export default class App extends React.Component<Props, State> {
           ]
         })
       }
+
+      removeOne = (food: Food) => {
+        this.setState({
+          cart: [
+            ...this.state.food.count( + 1)
+          ]
+        })
+      }
+
+      addOne = (food: Food) => {
+        this.setState({
+          count: (this.state.count - 1)
+        })
+      }
+    
+       
 
     render() {
     return (
