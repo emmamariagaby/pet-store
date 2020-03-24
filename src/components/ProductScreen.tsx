@@ -1,8 +1,8 @@
 import React from 'react';
+import PetFood from './PetFood';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
 import List from './List';
 import CheckoutScreen from './CheckoutScreen/CheckoutScreen';
-
 
 /**
  * Product page with dog and cat food
@@ -67,7 +67,8 @@ export type Cart = {
       render() {
         return (
             <Grommet theme={header}>
-                <div className="StartScreen">
+                <div className="ProductScreen">
+                    <PetFood />
                     <h2>Djurfoder</h2>
                     <List items={this.state.dcfood} addFood={this.addFood}/>
                     <CheckoutScreen cart={this.state.cart}/>
@@ -77,16 +78,4 @@ export type Cart = {
       }
     }
 
-const header = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '15px',
-      color: "brand",
-      height: '20px',
-      alignContent: 'center',
-    },
-  },
-};
-
- export default ProductScreen;
+export default ProductScreen;
