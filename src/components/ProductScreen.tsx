@@ -61,7 +61,15 @@ export type Cart = {
             cart: [...this.state.cart, food]
           })
       }
-      
+      handleRemove = (food: Food) => {
+        let index = this.state.cart.indexOf(food);
+        this.setState({
+          cart: [
+            ...this.state.cart.slice(0, index),
+            ...this.state.cart.slice(index + 1)
+          ]
+        });
+      };
 
       render() {
         return (
@@ -69,7 +77,7 @@ export type Cart = {
                 <div className="ProductScreen">
                     <h2>Djurfoder</h2>
                     <List items={this.state.dcfood} addFood={this.addFood}/>
-                    <CheckoutScreen cart={this.state.cart}/>
+                    <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
                 </div>
             </Grommet>
         )
