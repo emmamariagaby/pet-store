@@ -1,6 +1,7 @@
 import React from 'react'
-import ListItem from '././ListItem/ListItem'
+import ListItem from './PetFood/ListItem'
 import { Food } from './ProductScreen'
+import PetFood from './PetFood/PetFood';
 
 interface Props {
     items: Food[]
@@ -16,7 +17,7 @@ class List extends React.Component<Props> {
         <div>
             <ul>
                 {this.props.items.map((item) => { 
-                return <ListItem 
+                return <PetFood
                 key={item.id}
                 food={item} 
                 addToCart={this.props.addFood}

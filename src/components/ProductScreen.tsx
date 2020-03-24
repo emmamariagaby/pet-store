@@ -1,5 +1,4 @@
 import React from 'react';
-import PetFood from './PetFood';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
 import List from './List';
 import CheckoutScreen from './CheckoutScreen/CheckoutScreen';
@@ -66,9 +65,8 @@ export type Cart = {
 
       render() {
         return (
-            <Grommet theme={header}>
+            <Grommet>
                 <div className="ProductScreen">
-                    <PetFood />
                     <h2>Djurfoder</h2>
                     <List items={this.state.dcfood} addFood={this.addFood}/>
                     <CheckoutScreen cart={this.state.cart}/>

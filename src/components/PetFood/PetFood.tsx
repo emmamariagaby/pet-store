@@ -1,25 +1,26 @@
-import React from 'react';
-import { Cart } from '../ProductScreen'
-import './CheckoutScreen.css'
+import React from 'react'
+import { Food } from '../ProductScreen'
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
+import './PetFood.css'
+
 
 interface Props {
-    cart: Cart[]
+    food: Food
+    addToCart: (food: Food) => void
 }
 
 interface State {
+  
 }
-/**
- * Checkout page with chart, payment method and customer information
- */
 
- class CheckoutScreen extends React.Component<Props, State> {
+export default class PetFood extends React.Component<Props, State> {
+    handleClick(){
+        this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img})
+      }
+
     render() {
         return (
-            <Grommet>  
-                <h2>Din Varukorg</h2>
-                {this.props.cart.map(food => (
-                    <>  
+            <Grommet>
                 <Box justify="center" align="center"
                      width="medium" height="medium" direction="row"
                     border={{ color: 'brand', size: 'small' }}
@@ -32,34 +33,28 @@ interface State {
                             pad="small" margin="small"><h2>Food</h2>
                         </Box>
                         <Box width="small"
-                            height="small" justify="center"
+                            height="small" justify="center" direction="row"
                             pad="small" margin="small">
-                            <ul className="added_item">
-                                <li className="food" key={food.id}>{food.type}</li>
-                                <li className="food" key={food.id}>{food.animal}</li>
-                            </ul>
+                            <li>{this.props.food.type}</li>
+                            <li>{this.props.food.animal}</li>
                         </Box>
                         <Box width="medium" justify="center"
                             height="medium" direction="row"
                             pad="small" margin="small">
-                           <img key={food.id} src={food.img}/>
+                            <img src={this.props.food.img}/>
                         </Box>
                         <Box justify="center" width="small"
-                            height="small"
-                            pad="small" margin="medium">
-                            <Button
-                            label="Remove"
-                            color='brand'
-                            onClick={() => {}}
-                            />
+                            height="small" direction="row"
+                            pad="small" margin="small">
+                                <Button
+                                label="Add"
+                                color='brand'
+                                onClick={() => this.handleClick()}
+                                />
                         </Box>
                     </Box>
                 </Box>
-                </>
-                ))}
             </Grommet>
         )
     }
-
- }
- export default CheckoutScreen;
+}
