@@ -1,13 +1,14 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
 import { Basket } from 'grommet-icons';
+import ProductScreen from './ProductScreen'
 
 
 /**
  * Start page of website
  */
 
-class StartScreen extends React.Component {
+class StartScreen extends React.Component{
   render() {
     return (
       <Grommet theme={header}>
@@ -27,7 +28,10 @@ class StartScreen extends React.Component {
   src="petstore.jpg"
   />
 </Box>
+<ProductScreen />
+
         </div>
+        
         </Grommet>
     )
   }
