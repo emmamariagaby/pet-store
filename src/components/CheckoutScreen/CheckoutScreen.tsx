@@ -1,10 +1,12 @@
 import React from 'react';
 import { Cart } from '../ProductScreen'
+import { Food } from '../ProductScreen'
 import './CheckoutScreen.css'
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image} from 'grommet';
 
 interface Props {
     cart: Cart[]
+    handleRemove:(food: Food) => void
 }
 
 interface State {
@@ -50,7 +52,7 @@ interface State {
                             <Button
                             label="Remove"
                             color='brand'
-                            onClick={() => {}}
+                            onClick={() => this.props.handleRemove(food)}
                             />
                         </Box>
                     </Box>

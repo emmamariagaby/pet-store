@@ -1,5 +1,4 @@
 import React from 'react'
-import ListItem from './PetFood/ListItem'
 import { Food } from './ProductScreen'
 import PetFood from './PetFood/PetFood';
 
@@ -21,7 +20,7 @@ class List extends React.Component<Props> {
                 key={item.id}
                 food={item} 
                 addToCart={this.props.addFood}
-                />})};
+                />})}
             </ul>
         </div>
         )
