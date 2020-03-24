@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Basket } from 'grommet-icons';
-import CheckOutForm from './CheckOutForm';
 
 
 /**
