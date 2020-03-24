@@ -1,16 +1,54 @@
-import React from 'react'
-import { Grommet, Box, Form, FormField, TextInput, MaskedInput, Button, dark } from 'grommet'
+import React, { useState } from 'react'
+import { Grommet, Box, Form, FormField, TextInput, MaskedInput, Button, grommet, Heading, RadioButtonGroup } from 'grommet'
+import { deepMerge } from 'grommet/utils';
 
 
-
+const customFormFieldTheme = {
+    global: {
+        font: {
+            size: "16px"
+        },
+        input: {
+            weight: 400
+        }
+    },
+    formField: {
+        label: {
+            color: "dark-3",
+            size: "small",
+            margin: "xsmall",
+            weight: 600
+        },
+        border: {
+            side: "all"
+        },
+        disabled: {
+            background: {
+                color: "status-disabled",
+                opacity: true
+            }
+        },
+        content: {
+            // pad: "small",
+        },
+        error: {
+            background: {
+                color: "status-critical",
+                opacity: "weak"
+            }
+        },
+        margin: "none"
+    }
+};
 
 
 export default class CheckOutForm extends React.Component {
     render() {
         return (
-            <Grommet>
-                <Box fill align="center" justify="center">
+            <Grommet full theme={deepMerge(grommet, customFormFieldTheme)}>
+                <Box fill align="center" justify="center" margin={{ bottom: "xlarge" }} >
                     <Box width="medium">
+                        <Heading level={2} alignSelf="center">Your Information</Heading>
                         <Form>
                             <FormField label="First Name" name="name" required>
                                 <TextInput name="name" />
@@ -18,12 +56,10 @@ export default class CheckOutForm extends React.Component {
                             <FormField label="Last Name" name="LastName" required>
                                 <TextInput name="LastName" />
                             </FormField>
-                            <FormField label="Personal Identity Number" name="PersonalNumber" required>
-                                <TextInput name="PersonalNumber" />
-                            </FormField>
                             <FormField label="Mobile Number" name="Number" required>
                                 <TextInput name="Number" />
                             </FormField>
+
                             <FormField label="Email" name="email" required>
                                 <MaskedInput
                                     name="email"
@@ -48,10 +84,16 @@ export default class CheckOutForm extends React.Component {
                             <FormField label="Postal Code" name="PostalCode" required>
                                 <TextInput name="PostalCode" />
                             </FormField>
+                            <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
+                                <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Payment Method</Heading>
+                                <RadioButtonGroup
+                                    name="doc"
+                                    options={['Swish', 'Card', 'Klarna']}
+                                />
+                            </Box>
                             <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                                <Button label="Cancel" />
                                 <Button type="reset" label="Reset" />
-                                <Button type="submit" label="Update" primary />
+                                <Button type="submit" label="Next" primary />
                             </Box>
                         </Form>
                     </Box>
