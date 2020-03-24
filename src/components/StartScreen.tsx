@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Basket } from 'grommet-icons';
+import CheckOutForm from './CheckOutForm';
 
 
 /**
@@ -35,6 +36,7 @@ class StartScreen extends React.Component {
             <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
             <Anchor label="INFORMATION" />
           </Footer>
+          <CheckOutForm />
         </div>
       </Grommet>
     )
