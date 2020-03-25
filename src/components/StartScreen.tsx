@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Basket, Shop } from 'grommet-icons';
+import image from '../assets/images/petstore.jpg';
 
 
 /**
@@ -16,13 +17,9 @@ class StartScreen extends React.Component {
             <h1>pet store</h1>
             <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
           </Header>
+          <Box width="large" height="large">
+            <Image src={image} fit="cover" sizes='large'/>
 
-          <Box pad="small" justify="center" align="center">
-            <Image
-              fit="contain"
-              alignSelf="stretch"
-              src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg"
-            />
           </Box>
           <Main pad="medium" justify="center" align="center">
             <h2>Petfood since 1999</h2>
