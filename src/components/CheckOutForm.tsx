@@ -41,7 +41,10 @@ const customFormFieldTheme = {
     }
 };
 
+function CreateOrder() {
+    setTimeout(function () { alert("Your order is done"); }, 2000);
 
+}
 export default class CheckOutForm extends React.Component {
     render() {
         return (
@@ -93,7 +96,7 @@ export default class CheckOutForm extends React.Component {
                             </Box>
                             <Box direction="row" justify="between" margin={{ top: "medium" }}>
                                 <Button type="reset" label="Reset" />
-                                <Button type="submit" label="Next" primary />
+                                <Button onClick={CreateOrder} type="submit" label="Next" primary />
                             </Box>
                         </Form>
                     </Box>
