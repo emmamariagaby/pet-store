@@ -1,9 +1,9 @@
 import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
+import { Grommet, Button, Header, Main, Box, Footer, Anchor } from 'grommet';
 import { Basket, Home } from 'grommet-icons';
-import CheckOutForm from './CheckOutForm'
+import InformationForm from './InformationForm'
 
 interface Props {
     cart: Cart[]
@@ -13,7 +13,7 @@ interface Props {
 }
 
 interface State {
-   quantityItem: number
+    quantityItem: number
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -26,35 +26,35 @@ class CheckoutScreen extends React.Component<Props, State> {
             quantityItem: 1
         }
     }
-    handleClick(){
+    handleClick() {
         this.setState({
-            quantityItem: this.props.food.quantity ++
-            })
+            quantityItem: this.props.food.quantity++
+        })
     }
 
-    onHandleClick(){
+    onHandleClick() {
         this.setState({
-            quantityItem: this.props.food.quantity --
-            })
+            quantityItem: this.props.food.quantity--
+        })
     }
     //addOne(){
-       // this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, quantity: this.props.food.quantity})
-      //}
+    // this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, quantity: this.props.food.quantity})
+    //}
 
-    
+
     render() {
         return (
             <Grommet theme={header}>
-            <Header background="brand" pad="large">
-            <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
-         <h1>pet store</h1>
-         <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
-       </Header>
+                <Header background="brand" pad="large">
+                    <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
+                    <h1>pet store</h1>
+                    <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+                </Header>
 
                 <Main pad="medium" justify="center" align="center">
                     <h2>Your cart</h2>
                 </Main>
-                
+
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="center" align="center"
@@ -85,52 +85,52 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     height="small"
                                     pad="small" margin="medium">
                                     <Button
-                                    label="Remove"
-                                    color='brand'
-                                    onClick={() => this.props.handleRemove(food)}
+                                        label="Remove"
+                                        color='brand'
+                                        onClick={() => this.props.handleRemove(food)}
                                     />
                                 </Box>
                                 <Box width="small" justify="center"
                                     height="large" direction="row"
                                     pad="small" margin="small">
                                     <Button
-                                    label="+"
-                                    color='accent-3'
-                                    onClick={() => this.handleClick()}
+                                        label="+"
+                                        color='accent-3'
+                                        onClick={() => this.handleClick()}
                                     />
                                     <h3>{this.state.quantityItem}</h3>
                                     <Button
-                                    label="&ndash;"
-                                    color='accent-3'
-                                    onClick={() => this.onHandleClick()}
+                                        label="&ndash;"
+                                        color='accent-3'
+                                        onClick={() => this.onHandleClick()}
                                     />
-                                </Box>    
+                                </Box>
                             </Box>
                         </Box>
                     </>
                 ))}
-                <CheckOutForm />
-                   <Footer background="#DADADA" pad="small">
-  <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-  <Anchor label="INFORMATION" />
-</Footer> 
+                <InformationForm />
+                <Footer background="#DADADA" pad="small">
+                    <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+                    <Anchor label="INFORMATION" />
+                </Footer>
             </Grommet>
         )
     }
 
- }
+}
 
- const header = {
+const header = {
     global: {
-      font: {
-        family: 'Roboto',
-        size: '15px',
-        color: "brand",
-        height: '20px',
-        justify: 'center',
-        align: 'center'
-      },
+        font: {
+            family: 'Roboto',
+            size: '15px',
+            color: "brand",
+            height: '20px',
+            justify: 'center',
+            align: 'center'
+        },
     },
-  };
+};
 
- export default CheckoutScreen;
+export default CheckoutScreen;

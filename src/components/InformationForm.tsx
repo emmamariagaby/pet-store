@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Grommet, Box, Form, FormField, TextInput, MaskedInput, Button, grommet, Heading, RadioButtonGroup } from 'grommet'
+import React from 'react'
+import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading } from 'grommet'
 import { deepMerge } from 'grommet/utils';
+import PaymentForm from './PaymentForm';
 
 
 const customFormFieldTheme = {
@@ -28,9 +29,6 @@ const customFormFieldTheme = {
                 opacity: true
             }
         },
-        content: {
-            // pad: "small",
-        },
         error: {
             background: {
                 color: "status-critical",
@@ -41,11 +39,7 @@ const customFormFieldTheme = {
     }
 };
 
-function CreateOrder() {
-    setTimeout(function () { alert("Your order is done"); }, 2000);
-
-}
-export default class CheckOutForm extends React.Component {
+export default class InformationForm extends React.Component {
     render() {
         return (
             <Grommet full theme={deepMerge(grommet, customFormFieldTheme)}>
@@ -87,17 +81,7 @@ export default class CheckOutForm extends React.Component {
                             <FormField label="Postal Code" name="PostalCode" required>
                                 <TextInput name="PostalCode" />
                             </FormField>
-                            <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
-                                <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Payment Method</Heading>
-                                <RadioButtonGroup
-                                    name="doc"
-                                    options={['Swish', 'Card', 'Klarna']}
-                                />
-                            </Box>
-                            <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                                <Button type="reset" label="Reset" />
-                                <Button onClick={CreateOrder} type="submit" label="Next" primary />
-                            </Box>
+                            <PaymentForm />
                         </Form>
                     </Box>
                 </Box>
