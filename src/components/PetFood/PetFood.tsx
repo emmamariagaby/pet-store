@@ -15,7 +15,7 @@ interface State {
 
 export default class PetFood extends React.Component<Props, State> {
     handleClick(){
-        this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img})
+        this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, quantity: this.props.food.quantity})
       }
 
     render() {
