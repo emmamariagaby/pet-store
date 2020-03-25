@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
-import { Basket } from 'grommet-icons';
+import { Basket, Shop } from 'grommet-icons';
 
 
 /**
@@ -11,11 +11,10 @@ class StartScreen extends React.Component {
   render() {
     return (
       <Grommet theme={header}>
-        <div className="StartScreen">
           <Header background="brand" pad="large">
-            <Menu label="SHOP" items={[{ label: 'Petfood' }]} />
+            <Button className="ButtonShop" icon={<Shop />} hoverIndicator onClick={() => alert('Petfood')} />
             <h1>pet store</h1>
-            <Button icon={<Basket />} hoverIndicator />
+            <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
           </Header>
 
           <Box pad="small" justify="center" align="center">
@@ -25,18 +24,15 @@ class StartScreen extends React.Component {
               src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg"
             />
           </Box>
-
           <Main pad="medium" justify="center" align="center">
             <h2>Petfood since 1999</h2>
             <Paragraph>Pet Store is a online store with high quality petfood for cats and dogs</Paragraph>
           </Main>
-
           <Footer background="#DADADA" pad="small">
-            <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-            <Anchor label="INFORMATION" />
-          </Footer>
-        </div>
-      </Grommet>
+                    <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+                <Anchor label="INFORMATION" />
+                </Footer>       
+            </Grommet>
     )
   }
 }

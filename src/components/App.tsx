@@ -2,6 +2,8 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
+import NavigationMenu from "./NavigationMenu";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export interface Food {
     id: number
@@ -83,13 +85,34 @@ export default class App extends React.Component<Props, State> {
 
     render() {
     return (
+      <Router>
         <div className="App">
+          <nav>
+          <NavigationMenu>
+            {/* här ska button kopplas till rätt route path? */}
+          </NavigationMenu>
+          </nav>
+        
+        <Switch>
+          <Route path="/" exact component={StartScreen}>
             <StartScreen />
+            </Route>
+            <Route path="/ProductScreen" component={ProductScreen}>
             <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
+            </Route>
+            <Route path="/CheckoutScreen" component={CheckoutScreen}>
+            {this.state.cart.map(item => (
+            <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
+            ))}
+            </Route>
+            
+       </Switch>
+
             {this.state.cart.map(item => (
             <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
             ))}
         </div>
+        </Router>
         )
   }
 

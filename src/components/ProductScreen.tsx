@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
 import List from './List';
-import { Basket } from 'grommet-icons';
+import { Basket, Home } from 'grommet-icons';
 import { Cart } from './App'
 import { Food } from './App'
 
@@ -22,16 +22,13 @@ import { Food } from './App'
   }
 
  class ProductScreen extends React.Component<Props, State> {
-    
-        
-
       render() {
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
-                <Menu label="MENU" items={[{ label: 'Home'}]} />
+                <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
                     <h1>pet store</h1>
-                <Button icon={<Basket />} hoverIndicator />
+                <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
                 </Header>
                 <Main pad="small" justify="center" align="center">
                     <h2>ONLINE SHOP</h2>
