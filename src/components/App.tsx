@@ -2,6 +2,10 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
+import NavigationMenu from "./NavigationMenu";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Basket } from "grommet-icons";
+import { Button } from "grommet";
 
 export interface Food {
     id: number
@@ -71,11 +75,27 @@ export default class App extends React.Component<Props, State> {
 
     render() {
     return (
+      <Router>
         <div className="App">
+          <nav>
+          <NavigationMenu>
+            {/* här ska button kopplas till rätt route path? */}
+          </NavigationMenu>
+          </nav>
+        
+        <Switch>
+          <Route path="/" exact component={StartScreen}>
             <StartScreen />
+            </Route>
+            <Route path="/ProductScreen" component={ProductScreen}>
             <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
+            </Route>
+            <Route path="/CheckoutScreen" component={CheckoutScreen}>
             <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
+            </Route>
+       </Switch>
         </div>
+        </Router>
         )
     }
 }
