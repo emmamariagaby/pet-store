@@ -4,8 +4,6 @@ import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
 import NavigationMenu from "./NavigationMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Basket } from "grommet-icons";
-import { Button } from "grommet";
 
 export interface Food {
     id: number
@@ -101,17 +99,14 @@ export default class App extends React.Component<Props, State> {
             </Route>
             <Route path="/ProductScreen" component={ProductScreen}>
             <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
-<<<<<<< HEAD
             </Route>
             <Route path="/CheckoutScreen" component={CheckoutScreen}>
-            <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
-            </Route>
-       </Switch>
-=======
             {this.state.cart.map(item => (
             <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
             ))}
->>>>>>> added quantity to cart
+            </Route>
+            
+       </Switch>
         </div>
         </Router>
         )
