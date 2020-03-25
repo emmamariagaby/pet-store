@@ -107,6 +107,10 @@ export default class App extends React.Component<Props, State> {
             </Route>
             
        </Switch>
+
+            {this.state.cart.map(item => (
+            <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
+            ))}
         </div>
         </Router>
         )
