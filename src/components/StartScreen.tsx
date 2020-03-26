@@ -12,7 +12,12 @@ class StartScreen extends React.Component {
     return (
       <Grommet theme={header}>
         <Header background="brand" pad="large">
-          <Button className="ButtonShop" icon={<Shop />} hoverIndicator onClick={() => alert('Petfood')} />
+        <Menu
+        label='Menu'
+        items={[
+        { label: 'SHOP', href: 'ProductScreen' },
+      ]}
+    />
           <h1>pet store</h1>
           <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
         </Header>

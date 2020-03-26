@@ -26,7 +26,12 @@ import { Food } from './App'
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
-                <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
+                <Menu
+                label='Menu'
+                items={[
+               { label: 'HOME', href: '/' },
+           ]}
+    />
                     <h1>pet store</h1>
                 <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
                 </Header>

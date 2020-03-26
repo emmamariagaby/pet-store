@@ -2,7 +2,6 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
-import NavigationMenu from "./NavigationMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export type Food = {
@@ -90,14 +89,7 @@ export default class App extends React.Component<Props, State> {
     render() {
       return (
         <Router>
-          <div className="App">
-
-            <nav>
-            <NavigationMenu>
-              {/* här ska button kopplas till rätt route path? */}
-            </NavigationMenu>
-            </nav>
-          
+          <div className="App">          
           <Switch>
             <Route path="/" exact component={StartScreen}>
               <StartScreen />
