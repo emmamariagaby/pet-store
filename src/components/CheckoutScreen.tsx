@@ -31,14 +31,20 @@ class CheckoutScreen extends React.Component<Props, State> {
     addOne = (food: Food) => {
         this.setState({ add: true })
            food.quantity+= 1
-      }
+           
+           let total = 0;
+ 
+           this.props.cart.map(food => total += food.price * food.quantity)
+           console.log(total)
+    }
 
-      removeOne = (food: Food) =>{
+    removeOne = (food: Food) =>{
         this.setState({ remove: true })
         food.quantity-= 1
-      }
-
+    }
+    
     render() {
+ 
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
@@ -59,35 +65,39 @@ class CheckoutScreen extends React.Component<Props, State> {
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="center" align="center"
-                            width="medium" height="medium" direction="row"
+                            width="medium" height="medium" margin="margin" direction="row"
                             border={{ color: 'brand', size: 'small' }}
-                            pad="small" margin="small">
+                            pad="small">
                             <Box justify="center" align="center"
                                 width="medium" height="medium"
-                                pad="small" margin="small">
+                                pad="small">
                                 <Box justify="center" width="small"
                                     height="small" direction="row"
-                                    pad="small" margin="small"><h2>Food</h2>
+                                    pad="small"><h2>Food</h2>
                                 </Box>
                                 <Box width="small"
                                     height="small" justify="center"
-                                    pad="small" margin="small" direction="row"> 
+                                    pad="small" direction="row"> 
                                     <h3 className="food" key={food.id}>{food.type}</h3>
                                 </Box>
                                 <Box width="small"
                                     height="small" justify="center"
-                                    pad="small" margin="small" direction="row"> 
+                                    pad="small" direction="row"> 
                                     <h3 className="food" key={food.id}>{food.animal}</h3>
                                 </Box>
+                                <Box width="small"
+                                    height="small" justify="center"
+                                    pad="small" direction="row"> 
+                                    <h3 className="food" key={food.id}>{food.price + ' kr'}</h3>
+                                </Box>
                                 <Box width="medium" justify="center"
-                                    height="medium" direction="row"
-                                    pad="small" margin="small">
+                                    height="medium" direction="row">
                                     <img key={food.id} src={food.img} />
                                 </Box>
                                 <Button icon={<Trash color='brand' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                                 <Box width="medium" justify="center"
                                     height="medium" direction="row"
-                                    pad="medi" margin="small">
+                                    pad="medi">
                                     <Button icon={<AddCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
                                     <h3>{food.quantity}</h3> 
                                     <Button icon={<SubtractCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
