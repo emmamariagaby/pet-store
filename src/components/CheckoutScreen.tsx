@@ -9,11 +9,11 @@ interface Props {
     cart: Cart[]
     handleRemove: (food: Food) => void
     addOne: (food: Food) => void
-    food: Food
+    removeOne: (food: Food) => void
 }
 
 interface State {
-   quantityItem: number
+   
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -23,24 +23,9 @@ class CheckoutScreen extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            quantityItem: 1
+           
         }
     }
-    handleClick(){
-        this.setState({
-            quantityItem: this.props.food.quantity ++
-            })
-    }
-
-    onHandleClick(){
-        this.setState({
-            quantityItem: this.props.food.quantity --
-            })
-    }
-    //addOne(){
-       // this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, quantity: this.props.food.quantity})
-      //}
-
     
     render() {
         return (
@@ -96,13 +81,13 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     <Button
                                     label="+"
                                     color='accent-3'
-                                    onClick={() => this.handleClick()}
+                                    onClick={() => this.props.addOne(food)}
                                     />
-                                    <h3>{this.state.quantityItem}</h3>
+                                    <h3>{food.quantity}</h3>
                                     <Button
                                     label="&ndash;"
                                     color='accent-3'
-                                    onClick={() => this.onHandleClick()}
+                                    onClick={() => this.props.removeOne(food)}
                                     />
                                 </Box>    
                             </Box>
