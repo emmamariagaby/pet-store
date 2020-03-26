@@ -36,6 +36,10 @@ export default class PetFood extends React.Component<Props, State> {
                             height="small" justify="center" direction="row"
                             pad="small" margin="small">
                             <li>{this.props.food.type}</li>
+                        </Box>
+                        <Box width="small"
+                            height="small" justify="center" direction="row"
+                            pad="small" margin="small">
                             <li>{this.props.food.animal}</li>
                         </Box>
                         <Box width="medium" justify="center"
@@ -44,10 +48,10 @@ export default class PetFood extends React.Component<Props, State> {
                             <img src={this.props.food.img}/>
                         </Box>
                         <Box justify="center" width="small"
-                            height="small" direction="row"
+                            height="medium" direction="row"
                             pad="small" margin="small">
                                 <Button
-                                label="Add"
+                                label="Add To Cart"
                                 color='brand'
                                 onClick={() => this.handleClick()}
                                 />
