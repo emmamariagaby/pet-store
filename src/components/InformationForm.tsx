@@ -41,12 +41,11 @@ const customFormFieldTheme = {
 export default class InformationForm extends React.Component {
     render() {
         return (
-            export default () => (
             <Grommet full theme={deepMerge(grommet, customFormFieldTheme)}>
                 <Box fill align="center" justify="center" margin={{ bottom: "xlarge" }} >
                     <Box width="medium">
                         <Heading level={2} alignSelf="center">Your Information</Heading>
-                        <Form onSubmit={({ value }) => console.log("Submit: ", value)}>>
+                        <Form>
                             <FormField label="First Name" name="name" required={true}>
                                 <TextInput name="name" />
                             </FormField>
@@ -82,7 +81,7 @@ export default class InformationForm extends React.Component {
                                 <TextInput name="PostalCode" />
                             </FormField>
                             <PaymentForm />
-                            <Button type="submit" label="Submit" primary={true} />
+                          
                         </Form>
                     </Box>
                 </Box>
