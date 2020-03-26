@@ -5,7 +5,7 @@ import CheckoutScreen from "./CheckoutScreen"
 import NavigationMenu from "./NavigationMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-export interface Food {
+export type Food = {
     id: number
     type: string
     animal: string
@@ -25,8 +25,7 @@ export type Cart = {
   interface State {
     dcfood: Food[]
     cart: Cart[]
-    quantity: number
-    food: Food[]
+    quantityItem: number
   }
 
 export default class App extends React.Component<Props, State> {
@@ -59,8 +58,7 @@ export default class App extends React.Component<Props, State> {
             quantity: 1
         }],
             cart: [],
-            quantity: 1,
-            food: []
+            quantityItem: 1
         }
       }
 
@@ -74,46 +72,46 @@ export default class App extends React.Component<Props, State> {
         let index = this.state.cart.indexOf(food);
     
         this.setState({
-          quantity: this.state.quantity - 1,
           cart: [
             ...this.state.cart.slice(0, index),
             ...this.state.cart.slice(index + 1),
           ]
         })
       }
-      addOne(){}
+
+      addOne = (food: Food) =>{
+        this.setState({
+          cart: [...this.state.cart, food]
+          })
+      }
+
+      removeOne = (food: Food) =>{}
 
     render() {
-    return (
-      <Router>
-        <div className="App">
-          <nav>
-          <NavigationMenu>
-            {/* här ska button kopplas till rätt route path? */}
-          </NavigationMenu>
-          </nav>
-        
-        <Switch>
-          <Route path="/" exact component={StartScreen}>
-            <StartScreen />
-            </Route>
-            <Route path="/ProductScreen" component={ProductScreen}>
-            <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
-            </Route>
-            <Route path="/CheckoutScreen" component={CheckoutScreen}>
-            {this.state.cart.map(item => (
-            <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
-            ))}
-            </Route>
-            
-       </Switch>
+      return (
+        <Router>
+          <div className="App">
 
-            {this.state.cart.map(item => (
-            <CheckoutScreen food={item} handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne}/>
-            ))}
-        </div>
+            <nav>
+            <NavigationMenu>
+              {/* här ska button kopplas till rätt route path? */}
+            </NavigationMenu>
+            </nav>
+          
+          <Switch>
+            <Route path="/" exact component={StartScreen}>
+              <StartScreen />
+              </Route>
+              <Route path="/ProductScreen" component={ProductScreen}>
+              <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
+              </Route>
+              <Route path="/CheckoutScreen" component={CheckoutScreen}>
+              <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne} removeOne={this.removeOne}/>
+              </Route>
+          </Switch>
+
+          </div>
         </Router>
-        )
+      )
   }
-
 }
