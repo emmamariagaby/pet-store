@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
-import { Grommet, Button, Header, Main, Box, Footer, Anchor } from 'grommet';
+import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
 import { Basket, Home } from 'grommet-icons';
 import InformationForm from './InformationForm';
 //import InformationForm from './InformationForm'
@@ -29,7 +29,12 @@ class CheckoutScreen extends React.Component<Props, State> {
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
-                    <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
+                <Menu
+        label='Menu'
+        items={[
+        { label: 'Home', href: '/' },
+      ]}
+    />
                     <h1>pet store</h1>
                     <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
                 </Header>
