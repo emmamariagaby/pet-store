@@ -1,9 +1,9 @@
 import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
+import { Grommet, Button, Header, Main, Box, Footer, Anchor } from 'grommet';
 import { Basket, Home } from 'grommet-icons';
-import CheckOutForm from './CheckOutForm'
+import InformationForm from './InformationForm'
 
 interface Props {
     cart: Cart[]
@@ -13,7 +13,7 @@ interface Props {
 }
 
 interface State {
-   
+    quantityItem: number
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -26,20 +26,20 @@ class CheckoutScreen extends React.Component<Props, State> {
            
         }
     }
-    
+
     render() {
         return (
             <Grommet theme={header}>
-            <Header background="brand" pad="large">
-            <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
-         <h1>pet store</h1>
-         <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
-       </Header>
+                <Header background="brand" pad="large">
+                    <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
+                    <h1>pet store</h1>
+                    <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+                </Header>
 
                 <Main pad="medium" justify="center" align="center">
                     <h2>Your cart</h2>
                 </Main>
-                
+
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="center" align="center"
@@ -70,9 +70,9 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     height="small"
                                     pad="small" margin="medium">
                                     <Button
-                                    label="Remove"
-                                    color='brand'
-                                    onClick={() => this.props.handleRemove(food)}
+                                        label="Remove"
+                                        color='brand'
+                                        onClick={() => this.props.handleRemove(food)}
                                     />
                                 </Box>
                                 <Box width="small" justify="center"
@@ -89,33 +89,33 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     color='accent-3'
                                     onClick={() => this.props.removeOne(food)}
                                     />
-                                </Box>    
+                                </Box>
                             </Box>
                         </Box>
                     </>
                 ))}
-                <CheckOutForm />
-                   <Footer background="#DADADA" pad="small">
-  <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-  <Anchor label="INFORMATION" />
-</Footer> 
+                <InformationForm />
+                <Footer background="#DADADA" pad="small">
+                    <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+                    <Anchor label="INFORMATION" />
+                </Footer>
             </Grommet>
         )
     }
 
- }
+}
 
- const header = {
+const header = {
     global: {
-      font: {
-        family: 'Roboto',
-        size: '15px',
-        color: "brand",
-        height: '20px',
-        justify: 'center',
-        align: 'center'
-      },
+        font: {
+            family: 'Roboto',
+            size: '15px',
+            color: "brand",
+            height: '20px',
+            justify: 'center',
+            align: 'center'
+        },
     },
-  };
+};
 
- export default CheckoutScreen;
+export default CheckoutScreen;
