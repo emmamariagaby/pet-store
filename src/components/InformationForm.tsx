@@ -1,8 +1,7 @@
 import React from 'react'
-import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading } from 'grommet'
+import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading, Button } from 'grommet'
 import { deepMerge } from 'grommet/utils';
 import PaymentForm from './PaymentForm';
-
 
 const customFormFieldTheme = {
     global: {
@@ -47,17 +46,17 @@ export default class InformationForm extends React.Component {
                     <Box width="medium">
                         <Heading level={2} alignSelf="center">Your Information</Heading>
                         <Form>
-                            <FormField label="First Name" name="name" required>
+                            <FormField label="First Name" name="name" required={true}>
                                 <TextInput name="name" />
                             </FormField>
-                            <FormField label="Last Name" name="LastName" required>
+                            <FormField label="Last Name" name="LastName" required={true}>
                                 <TextInput name="LastName" />
                             </FormField>
-                            <FormField label="Mobile Number" name="Number" required>
+                            <FormField label="Mobile Number" name="Number" required={true}>
                                 <TextInput name="Number" />
                             </FormField>
 
-                            <FormField label="Email" name="email" required>
+                            <FormField label="Email" name="email" required={true}>
                                 <MaskedInput
                                     name="email"
                                     mask={[
@@ -69,24 +68,24 @@ export default class InformationForm extends React.Component {
                                     ]}
                                 />
                             </FormField>
-                            <FormField label="Country" name="Country" required>
+                            <FormField label="Country" name="Country" required={true}>
                                 <TextInput name="Country" />
                             </FormField>
-                            <FormField label="City" name="City" required>
+                            <FormField label="City" name="City" required={true}>
                                 <TextInput name="City" />
                             </FormField>
-                            <FormField label="Adress" name="Adress" required>
+                            <FormField label="Adress" name="Adress" required={true}>
                                 <TextInput name="Adress" />
                             </FormField>
-                            <FormField label="Postal Code" name="PostalCode" required>
+                            <FormField label="Postal Code" name="PostalCode" required={true}>
                                 <TextInput name="PostalCode" />
                             </FormField>
                             <PaymentForm />
+                          
                         </Form>
                     </Box>
                 </Box>
             </Grommet>
         )
     }
-
 }

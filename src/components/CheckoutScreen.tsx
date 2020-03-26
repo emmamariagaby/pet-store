@@ -3,7 +3,8 @@ import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor } from 'grommet';
 import { Basket, Home } from 'grommet-icons';
-import InformationForm from './InformationForm'
+import InformationForm from './InformationForm';
+//import InformationForm from './InformationForm'
 
 interface Props {
     cart: Cart[]
