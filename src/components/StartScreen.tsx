@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Basket, Shop } from 'grommet-icons';
-import InformationForm from './InformationForm';
 
 
 /**
@@ -13,7 +12,12 @@ class StartScreen extends React.Component {
     return (
       <Grommet theme={header}>
         <Header background="brand" pad="large">
-          <Button className="ButtonShop" icon={<Shop />} hoverIndicator onClick={() => alert('Petfood')} />
+        <Menu
+        label='Menu'
+        items={[
+        { label: 'SHOP', href: 'ProductScreen' },
+      ]}
+    />
           <h1>pet store</h1>
           <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
         </Header>
@@ -33,7 +37,6 @@ class StartScreen extends React.Component {
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
           <Anchor label="INFORMATION" />
         </Footer>
-        <InformationForm />
       </Grommet>
     )
   }
