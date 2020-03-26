@@ -13,7 +13,6 @@ interface Props {
 }
 
 interface State {
-    quantityItem: number
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -22,9 +21,7 @@ interface State {
 class CheckoutScreen extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-        this.state = {
-           
-        }
+
     }
 
     render() {
@@ -79,15 +76,15 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     height="large" direction="row"
                                     pad="small" margin="small">
                                     <Button
-                                    label="+"
-                                    color='accent-3'
-                                    onClick={() => this.props.addOne(food)}
+                                        label="+"
+                                        color='accent-3'
+                                        onClick={() => this.props.addOne(food)}
                                     />
                                     <h3>{food.quantity}</h3>
                                     <Button
-                                    label="&ndash;"
-                                    color='accent-3'
-                                    onClick={() => this.props.removeOne(food)}
+                                        label="&ndash;"
+                                        color='accent-3'
+                                        onClick={() => this.props.removeOne(food)}
                                     />
                                 </Box>
                             </Box>
