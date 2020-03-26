@@ -9,11 +9,11 @@ import InformationForm from './InformationForm';
 interface Props {
     cart: Cart[]
     handleRemove: (food: Food) => void
-    addOne: (food: Food) => void
-    removeOne: (food: Food) => void
 }
 
 interface State {
+    add: boolean
+    remove: boolean
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -22,8 +22,21 @@ interface State {
 class CheckoutScreen extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
+        this.state = {
+            add: false,
+            remove: false
+        }
     }
+
+    addOne = (food: Food) => {
+        this.setState({ add: true })
+           food.quantity+= 1
+      }
+
+      removeOne = (food: Food) =>{
+        this.setState({ remove: true })
+        food.quantity-= 1
+      }
 
     render() {
         return (
@@ -32,7 +45,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Menu
         label='Menu'
         items={[
-        { label: 'HOME', href: '/' },
+            { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
       ]}
     />
                     <h1>pet store</h1>
@@ -84,13 +97,13 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     <Button
                                         label="+"
                                         color='accent-3'
-                                        onClick={() => this.props.addOne(food)}
+                                        onClick={() => this.addOne(food)}
                                     />
                                     <h3>{food.quantity}</h3>
                                     <Button
                                         label="&ndash;"
                                         color='accent-3'
-                                        onClick={() => this.props.removeOne(food)}
+                                        onClick={() => this.removeOne(food)}
                                     />
                                 </Box>
                             </Box>
