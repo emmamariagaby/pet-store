@@ -2,18 +2,18 @@ import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
-import { Basket, Home } from 'grommet-icons';
+import { Basket, Home, Trash, SubtractCircle, AddCircle } from 'grommet-icons';
 import InformationForm from './InformationForm';
 //import InformationForm from './InformationForm'
 
 interface Props {
     cart: Cart[]
     handleRemove: (food: Food) => void
-    addOne: (food: Food) => void
-    removeOne: (food: Food) => void
 }
 
 interface State {
+    add: boolean
+    remove: boolean
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -22,8 +22,21 @@ interface State {
 class CheckoutScreen extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
+        this.state = {
+            add: false,
+            remove: false
+        }
     }
+
+    addOne = (food: Food) => {
+        this.setState({ add: true })
+           food.quantity+= 1
+      }
+
+      removeOne = (food: Food) =>{
+        this.setState({ remove: true })
+        food.quantity-= 1
+      }
 
     render() {
         return (
@@ -32,7 +45,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Menu
         label='Menu'
         items={[
-        { label: 'HOME', href: '/' },
+            { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
       ]}
     />
                     <h1>pet store</h1>
@@ -58,40 +71,26 @@ class CheckoutScreen extends React.Component<Props, State> {
                                 </Box>
                                 <Box width="small"
                                     height="small" justify="center"
-                                    pad="small" margin="small">
-                                    <ul className="added_item">
-                                        <li className="food" key={food.id}>{food.type}</li>
-                                        <li className="food" key={food.id}>{food.animal}</li>
-                                    </ul>
+                                    pad="small" margin="small" direction="row"> 
+                                    <h3 className="food" key={food.id}>{food.type}</h3>
+                                </Box>
+                                <Box width="small"
+                                    height="small" justify="center"
+                                    pad="small" margin="small" direction="row"> 
+                                    <h3 className="food" key={food.id}>{food.animal}</h3>
                                 </Box>
                                 <Box width="medium" justify="center"
                                     height="medium" direction="row"
                                     pad="small" margin="small">
                                     <img key={food.id} src={food.img} />
                                 </Box>
-                                <Box justify="center" width="small"
-                                    height="small"
-                                    pad="small" margin="medium">
-                                    <Button
-                                        label="Remove"
-                                        color='brand'
-                                        onClick={() => this.props.handleRemove(food)}
-                                    />
-                                </Box>
-                                <Box width="small" justify="center"
-                                    height="large" direction="row"
-                                    pad="small" margin="small">
-                                    <Button
-                                        label="+"
-                                        color='accent-3'
-                                        onClick={() => this.props.addOne(food)}
-                                    />
-                                    <h3>{food.quantity}</h3>
-                                    <Button
-                                        label="&ndash;"
-                                        color='accent-3'
-                                        onClick={() => this.props.removeOne(food)}
-                                    />
+                                <Button icon={<Trash color='brand' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                                <Box width="medium" justify="center"
+                                    height="medium" direction="row"
+                                    pad="medi" margin="small">
+                                    <Button icon={<AddCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
+                                    <h3>{food.quantity}</h3> 
+                                    <Button icon={<SubtractCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
                                 </Box>
                             </Box>
                         </Box>

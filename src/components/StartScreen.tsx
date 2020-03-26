@@ -15,7 +15,7 @@ class StartScreen extends React.Component {
         <Menu
         label='Menu'
         items={[
-        { label: 'SHOP', href: 'ProductScreen' },
+          { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
       ]}
     />
           <h1>pet store</h1>

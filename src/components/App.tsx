@@ -2,6 +2,8 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
+
+import { Link } from 'react-router-dom';
 import InformationScreen from "./InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -79,18 +81,23 @@ export default class App extends React.Component<Props, State> {
         })
       }
 
-      addOne = (food: Food) =>{
-        this.setState({
-          cart: [...this.state.cart, food]
-          })
-      }
-
-      removeOne = (food: Food) =>{}
-
     render() {
       return (
         <Router>
-          <div className="App">          
+          <div className="App">  
+          <nav>
+        <ul className="nav-links">
+            <Link to='/'>
+            <li>StartScreen</li>
+            </Link>
+            <Link to='/ProductScreen'>
+            <li>ProductScreen</li>
+            </Link>
+            <Link to='/CheckoutScreen'>
+            <li>CheckoutScreen</li>
+            </Link>
+            </ul> 
+        </nav>  
           <Switch>
             <Route path="/" exact component={StartScreen}>
               <StartScreen />
@@ -99,7 +106,7 @@ export default class App extends React.Component<Props, State> {
               <ProductScreen dcfood={this.state.dcfood} cart={this.state.cart} addFood={this.addFood}/>
               </Route>
               <Route path="/CheckoutScreen" component={CheckoutScreen}>
-              <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne} removeOne={this.removeOne}/>
+              <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
               </Route>
               <Route path="/InformationScreen" component={InformationScreen}>
               </Route>
