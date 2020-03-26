@@ -2,6 +2,7 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
+import InformationScreen from "./InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export type Food = {
@@ -99,6 +100,8 @@ export default class App extends React.Component<Props, State> {
               </Route>
               <Route path="/CheckoutScreen" component={CheckoutScreen}>
               <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart} addOne={this.addOne} removeOne={this.removeOne}/>
+              </Route>
+              <Route path="/InformationScreen" component={InformationScreen}>
               </Route>
           </Switch>
 
