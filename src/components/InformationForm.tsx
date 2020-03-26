@@ -2,6 +2,7 @@ import React from 'react'
 import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading, Button } from 'grommet'
 import { deepMerge } from 'grommet/utils';
 import PaymentForm from './PaymentForm';
+import ShippingMethods from './ShippingMethods';
 
 const customFormFieldTheme = {
     global: {
@@ -80,6 +81,7 @@ export default class InformationForm extends React.Component {
                             <FormField label="Postal Code" name="PostalCode" required={true}>
                                 <TextInput name="PostalCode" />
                             </FormField>
+                            <ShippingMethods />
                             <PaymentForm />
                           
                         </Form>
