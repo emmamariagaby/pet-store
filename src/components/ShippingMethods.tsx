@@ -1,17 +1,23 @@
 import React from 'react'
 import { Form, Box, Heading, Select } from 'grommet'
+import postnord from './postnord';
+import Postnord from './postnord';
+import Dhl from './dhl';
+import Pickup from './pickup';
+
 
 export default function ShippingMethods() {
-    const [value, setValue] = React.useState('medium');
+    const [value, setValue] = React.useState('Shipping');
+    let post;
 
     if (value == 'Postnord') {
-        alert('hiiii')
+        post = <Postnord />
     }
     if (value == 'DHL') {
-        alert('mdi')
+        post = <Dhl />
     }
     if (value == 'Fast Shipping DHL') {
-        alert('mdi')
+        post = <Pickup />
     }
 
     return (
@@ -23,6 +29,7 @@ export default function ShippingMethods() {
                     value={value}
                     onChange={({ option }) => setValue(option)}
                 />
+                {post}
             </Box>
         </Form>
     );
