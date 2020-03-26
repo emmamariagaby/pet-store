@@ -32,7 +32,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Menu
         label='Menu'
         items={[
-        { label: 'Home', href: '/' },
+        { label: 'HOME', href: '/' },
       ]}
     />
                     <h1>pet store</h1>
