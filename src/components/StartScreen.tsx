@@ -35,7 +35,7 @@ class StartScreen extends React.Component {
         </Main>
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-          <Anchor label="INFORMATION" />
+          <Anchor href="InformationScreen" label="INFORMATION"/>
         </Footer>
       </Grommet>
     )
