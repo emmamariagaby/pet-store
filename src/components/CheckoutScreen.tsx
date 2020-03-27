@@ -2,7 +2,7 @@ import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
-import { Basket, Home, Trash, SubtractCircle, AddCircle } from 'grommet-icons';
+import { Basket, Home, Trash, SubtractCircle, AddCircle, FormDown } from 'grommet-icons';
 import InformationForm from './InformationForm';
 //import InformationForm from './InformationForm'
 
@@ -14,6 +14,7 @@ interface Props {
 interface State {
     add: boolean
     remove: boolean
+    
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -24,18 +25,17 @@ class CheckoutScreen extends React.Component<Props, State> {
         super(props)
         this.state = {
             add: false,
-            remove: false
+            remove: false,
+            
         }
     }
 
     addOne = (food: Food) => {
-        this.setState({ add: true })
-           food.quantity+= 1
-           
-           let total = 0;
- 
-           this.props.cart.map(food => total += food.price * food.quantity)
-           console.log(total)
+        this.setState({ 
+            add: true
+         })
+            food.total=food.price*food.quantity + food.price
+            food.quantity+= 1  
     }
 
     removeOne = (food: Food) =>{
@@ -88,7 +88,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                 <Box width="small"
                                     height="small" justify="center"
                                     pad="small" direction="row"> 
-                                    <h3 className="food" key={food.id}>{food.price + ' kr'}</h3>
+                                    <h3 className="food" key={food.id}>{food.total + ' kr'}</h3>
                                 </Box>
                                 <Box width="medium" justify="center"
                                     height="medium" direction="row">
@@ -106,6 +106,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                         </Box>
                     </>
                 ))}
+                <h3>{}</h3>
                 <InformationForm />
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
