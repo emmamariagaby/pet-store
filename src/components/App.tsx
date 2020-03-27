@@ -79,7 +79,7 @@ export default class App extends React.Component<Props, State> {
         this.setState({
           cart: [...this.state.cart, food],
           })
-          food.total=food.price
+          food.total = food.price
           food.quantity+= 1
       }
 
