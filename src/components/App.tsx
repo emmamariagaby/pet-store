@@ -6,12 +6,15 @@ import CheckoutScreen from "./CheckoutScreen"
 import { Link } from 'react-router-dom';
 import InformationScreen from "./InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { privateEncrypt } from "crypto";
 
 export type Food = {
     id: number
     type: string
     animal: string
     img: string
+    price: number
+    total: number
     quantity: number
   }
 export type Cart = {
@@ -19,6 +22,8 @@ export type Cart = {
     type: string
     animal: string
     img: string
+    price: number
+    total: number
     quantity: number
   }
   
@@ -27,7 +32,6 @@ export type Cart = {
   interface State {
     dcfood: Food[]
     cart: Cart[]
-    quantityItem: number
   }
 
 export default class App extends React.Component<Props, State> {
@@ -39,35 +43,44 @@ export default class App extends React.Component<Props, State> {
             type: 'dry',
             animal: 'dog',
             img: 'https://cdn.royalcanin-weshare-online.io/XiKc-mQBaxEApS7LrwSZ/v2/mini-dental-ccn-packshot?w=320&auto=compress&fm=jpg',
-            quantity: 1
+            price: 250, 
+            total: 0,
+            quantity: 0
           }, {
             id: 1,
             type: 'wet',
             animal: 'dog',
             img: 'https://cdn.royalcanin-weshare-online.io/zCJQa2sBaxEApS7LRh5U/v80/ad-jack-russel-packshot-bhn18?w=320&auto=compress&fm=jpg',
-            quantity: 1
+            price: 300,
+            total: 0,
+            quantity: 0
           }, {
             id: 2,
             type: 'dry',
             animal: 'cat',
             img: 'https://cdn.royalcanin-weshare-online.io/m2kUrmsBG95Xk-RB3Pu-/v4/hairskin-ne-fcn-packshot?w=320&auto=compress&fm=jpg',
-            quantity: 1
+            price: 250,
+            total: 0,
+            quantity: 0
           }, {
             id: 3,
             type: 'wet',
             animal: 'cat',
             img: 'https://cdn.royalcanin-weshare-online.io/-Gkua2QBG95Xk-RBidKW/v2/16-kitten-sterilised-b1-ne?w=320&auto=compress&fm=jpg',
-            quantity: 1
+            price: 300,
+            total: 0,
+            quantity: 0
         }],
             cart: [],
-            quantityItem: 1
         }
       }
 
       addFood = (food: Food)=>{
         this.setState({
-          cart: [...this.state.cart, food]
+          cart: [...this.state.cart, food],
           })
+          food.total = food.price
+          food.quantity+= 1
       }
 
       handleRemove = (food: Food) => {

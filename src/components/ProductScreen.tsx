@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid} from 'grommet';
 import List from './List';
 import { Basket, Home } from 'grommet-icons';
 import { Cart } from './App'
