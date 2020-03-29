@@ -19,7 +19,7 @@ import { Basket, Phone, MailOption } from 'grommet-icons';
           ]}
         />
               <h1>pet store</h1>
-              <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+              <Button href="CheckoutScreen" icon={<Basket />} />
             </Header>
             
             <Main pad="medium" justify="center" align="center">

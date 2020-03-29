@@ -33,7 +33,7 @@ import { Food } from './App'
            ]}
     />
                     <h1>pet store</h1>
-                <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+                    <Button href="CheckoutScreen" icon={<Basket />} />
                 </Header>
                 <Main pad="small" justify="center" align="center">
                     <h2>ONLINE SHOP</h2>

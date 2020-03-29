@@ -19,7 +19,7 @@ class StartScreen extends React.Component {
       ]}
     />
           <h1>pet store</h1>
-          <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+          <Button href="CheckoutScreen" icon={<Basket />} />
         </Header>
 
         <Box pad="small" justify="center" align="center">
