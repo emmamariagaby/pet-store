@@ -2,7 +2,7 @@ import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
-import { Basket, Home, Trash, SubtractCircle, AddCircle, FormDown } from 'grommet-icons';
+import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
 import InformationForm from './InformationForm';
 //import InformationForm from './InformationForm'
 
@@ -29,14 +29,9 @@ class CheckoutScreen extends React.Component<Props, State> {
     }
 
     addOne = (food: Food) => {
-        this.setState({ 
-            add: true,
-            
-         })
+        this.setState({ add: true })
             food.total = food.price * food.quantity + food.price
             food.quantity+= 1  
-           
-           
     }
 
     removeOne = (food: Food) =>{
@@ -53,12 +48,12 @@ class CheckoutScreen extends React.Component<Props, State> {
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
-                <Menu
-        label='Menu'
-        items={[
-            { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
-      ]}
-    />
+                    <Menu
+                    label='Menu'
+                    items={[
+                    { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
+                    ]}
+                    />
                     <h1>pet store</h1>
                     <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
                 </Header>
@@ -69,54 +64,34 @@ class CheckoutScreen extends React.Component<Props, State> {
 
                 {this.props.cart.map(food => (
                     <>
-                        <Box justify="center" align="center"
-                            width="medium" height="medium" margin="margin" direction="row"
-                            border={{ color: 'brand', size: 'small' }}
-                            pad="small">
-                            <Box justify="center" align="center"
-                                width="medium" height="medium"
-                                pad="small">
-                                <Box justify="center" width="small"
-                                    height="small" direction="row"
-                                    pad="small"><h2>Food</h2>
-                                </Box>
-                                <Box width="small"
-                                    height="small" justify="center"
-                                    pad="small" direction="row"> 
-                                    <h3 className="food" key={food.id}>{food.type}</h3>
-                                </Box>
-                                <Box width="small"
-                                    height="small" justify="center"
-                                    pad="small" direction="row"> 
-                                    <h3 className="food" key={food.id}>{food.animal}</h3>
-                                </Box>
-                                <Box width="small"
-                                    height="small" justify="center" direction="row"
-                                    pad="small">
-                                    <h3>{'Price ' + food.price + ' kr'}</h3>
-                                </Box>
-                                <Box width="small"
-                                    height="small" justify="center"
-                                    pad="small" direction="row"> 
-                                    <h3 className="food" key={food.id}>{'Total:' + food.total + ' kr'}</h3>
-                                </Box>
-                                <Box width="medium" justify="center"
-                                    height="medium" direction="row" margin="small">
-                                    <img key={food.id} src={food.img} />
-                                </Box>
-                                <Button icon={<Trash color='brand' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
-                                <Box width="medium" justify="center"
-                                    height="medium" direction="row"
-                                    pad="medi">
-                                    <Button icon={<AddCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
-                                    <h3>{food.quantity}</h3> 
-                                    <Button icon={<SubtractCircle color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
-                                </Box>
+                        <Box justify="between" align="center"
+                            width="xxlarge" height="medium" direction="row"
+                            pad="medium" border='top'>
+                           <Box width="medium" justify="center" align="center"
+                            height="small"
+                            pad="medium">
+                                <img key={food.id} src={food.img} />
+                                <h2 className="food" key={food.id}>{food.type + ' '}{food.animal}</h2>
+                            </Box>   
+                            <Box width="medium" justify="center" align="center"
+                            height="small" direction="row"
+                            pad="medium">
+                                <Button margin='small' icon={<Add color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
+                                <h2>{food.quantity}</h2> 
+                                <Button margin='small' icon={<Subtract color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
                             </Box>
+                            <Button icon={<Trash color='dark-4' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                            <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
                         </Box>
+                        
                     </>
                 ))}
-                <h2>{'Total: ' + totalSum}</h2>
+                
+                        <Box justify="end"  border='top'
+                        width="xxlarge" height="medium" direction="row"
+                        pad="medium"> 
+                            <h2>{'Total: ' + totalSum}</h2>
+                        </Box>
                 <InformationForm />
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
