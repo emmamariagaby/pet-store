@@ -14,6 +14,7 @@ interface Props {
 interface State {
     add: boolean
     remove: boolean
+    checkout: boolean
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -25,6 +26,7 @@ class CheckoutScreen extends React.Component<Props, State> {
         this.state = {
             add: false,
             remove: false,
+            checkout: false
         }
     }
 
@@ -38,6 +40,10 @@ class CheckoutScreen extends React.Component<Props, State> {
         this.setState({ remove: true })
         food.total-= food.price
         food.quantity-= 1
+    }
+
+    checkout = () => {
+        this.setState({ checkout: true })
     }
 
     emptyCart () {
@@ -92,16 +98,26 @@ class CheckoutScreen extends React.Component<Props, State> {
                             <Button icon={<Trash color='dark-4' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                             <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
                         </Box>
-                        
                     </>
                 ))}
-                
                         <Box justify="end"  border='top'
-                        width="xxlarge" height="medium" direction="row"
+                        width="xxlarge" height="xsmall" direction="row"
                         pad="medium"> 
                             <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
                         </Box>
-                <InformationForm />
+                        <Box justify="center" 
+                        width="xxlarge" height="small" direction="row"
+                        pad="medium"> 
+                            <Box>
+                            {(this.props.cart.length == 0) ? "" : <Button
+                            label="Checkout"
+                            onClick={() => this.checkout()} primary
+                            />}
+                           </Box> 
+                        </Box>
+                       
+                {this.state.checkout && (
+                <InformationForm />)}
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>
