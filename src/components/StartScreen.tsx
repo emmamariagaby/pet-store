@@ -26,14 +26,16 @@ class StartScreen extends React.Component {
         <Box pad="small" justify="center" align="center">
           <Image
             fit="contain"
-            alignSelf="stretch"
-            src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg"
+            alignSelf="center"
+            src={image}
           />
         </Box>
         <Main pad="medium" justify="center" align="center">
           <h2>Petfood since 1999</h2>
           <Paragraph>Pet Store is a online store with high quality petfood for cats and dogs</Paragraph>
         </Main>
+        <br></br><br></br>
+
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
           <Anchor href="InformationScreen" label="INFORMATION"/>
