@@ -39,12 +39,20 @@ class CheckoutScreen extends React.Component<Props, State> {
         food.total-= food.price
         food.quantity-= 1
     }
+
+    emptyCart () {
+        if (this.props.cart.length==0) {
+            return 'Cart is empty'
+           
+        }
+    }
     
     render() {
         const totalSum=  this.props.cart.length ? this.props.cart.reduce((total, food) => (
             total + food.total
           ), 0): Number(0)
 
+  
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
@@ -59,7 +67,8 @@ class CheckoutScreen extends React.Component<Props, State> {
                 </Header>
 
                 <Main pad="medium" justify="center" align="center">
-                    <h2>Your cart</h2>
+                    
+                    <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
                 </Main>
 
                 {this.props.cart.map(food => (
@@ -90,7 +99,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                         <Box justify="end"  border='top'
                         width="xxlarge" height="medium" direction="row"
                         pad="medium"> 
-                            <h2>{'Total: ' + totalSum}</h2>
+                            <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
                         </Box>
                 <InformationForm />
                 <Footer background="#DADADA" pad="small">
