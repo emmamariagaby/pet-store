@@ -1,19 +1,19 @@
 import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
-import { Basket, Home } from 'grommet-icons';
-import CheckOutForm from './CheckOutForm'
+import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
+import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
+import InformationForm from './InformationForm';
+//import InformationForm from './InformationForm'
 
 interface Props {
     cart: Cart[]
     handleRemove: (food: Food) => void
-    addOne: (food: Food) => void
-    food: Food
 }
 
 interface State {
-   quantityItem: number
+    add: boolean
+    remove: boolean
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -23,114 +23,97 @@ class CheckoutScreen extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            quantityItem: 1
+            add: false,
+            remove: false,
         }
     }
-    handleClick(){
-        this.setState({
-            quantityItem: this.props.food.quantity ++
-            })
+
+    addOne = (food: Food) => {
+        this.setState({ add: true })
+            food.total = food.price * food.quantity + food.price
+            food.quantity+= 1  
     }
 
-    onHandleClick(){
-        this.setState({
-            quantityItem: this.props.food.quantity --
-            })
+    removeOne = (food: Food) =>{
+        this.setState({ remove: true })
+        food.total-= food.price
+        food.quantity-= 1
     }
-    //addOne(){
-       // this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, quantity: this.props.food.quantity})
-      //}
-
     
     render() {
+        const totalSum=  this.props.cart.length ? this.props.cart.reduce((total, food) => (
+            total + food.total
+          ), 0): Number(0)
+
         return (
             <Grommet theme={header}>
-            <Header background="brand" pad="large">
-            <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
-         <h1>pet store</h1>
-         <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
-       </Header>
+                <Header background="brand" pad="large">
+                    <Menu
+                    label='Menu'
+                    items={[
+                    { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
+                    ]}
+                    />
+                    <h1>pet store</h1>
+                    <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
+                </Header>
 
                 <Main pad="medium" justify="center" align="center">
                     <h2>Your cart</h2>
                 </Main>
-                
+
                 {this.props.cart.map(food => (
                     <>
-                        <Box justify="center" align="center"
-                            width="medium" height="medium" direction="row"
-                            border={{ color: 'brand', size: 'small' }}
-                            pad="small" margin="small">
-                            <Box justify="center" align="center"
-                                width="medium" height="medium"
-                                pad="small" margin="small">
-                                <Box justify="center" width="small"
-                                    height="small" direction="row"
-                                    pad="small" margin="small"><h2>Food</h2>
-                                </Box>
-                                <Box width="small"
-                                    height="small" justify="center"
-                                    pad="small" margin="small">
-                                    <ul className="added_item">
-                                        <li className="food" key={food.id}>{food.type}</li>
-                                        <li className="food" key={food.id}>{food.animal}</li>
-                                    </ul>
-                                </Box>
-                                <Box width="medium" justify="center"
-                                    height="medium" direction="row"
-                                    pad="small" margin="small">
-                                    <img key={food.id} src={food.img} />
-                                </Box>
-                                <Box justify="center" width="small"
-                                    height="small"
-                                    pad="small" margin="medium">
-                                    <Button
-                                    label="Remove"
-                                    color='brand'
-                                    onClick={() => this.props.handleRemove(food)}
-                                    />
-                                </Box>
-                                <Box width="small" justify="center"
-                                    height="large" direction="row"
-                                    pad="small" margin="small">
-                                    <Button
-                                    label="+"
-                                    color='accent-3'
-                                    onClick={() => this.handleClick()}
-                                    />
-                                    <h3>{this.state.quantityItem}</h3>
-                                    <Button
-                                    label="&ndash;"
-                                    color='accent-3'
-                                    onClick={() => this.onHandleClick()}
-                                    />
-                                </Box>    
+                        <Box justify="between" align="center"
+                            width="xxlarge" height="medium" direction="row"
+                            pad="medium" border='top'>
+                           <Box width="medium" justify="center" align="center"
+                            height="small"
+                            pad="medium">
+                                <img key={food.id} src={food.img} />
+                                <h2 className="food" key={food.id}>{food.type + ' '}{food.animal}</h2>
+                            </Box>   
+                            <Box width="medium" justify="center" align="center"
+                            height="small" direction="row"
+                            pad="medium">
+                                <Button margin='small' icon={<Add color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
+                                <h2>{food.quantity}</h2> 
+                                <Button margin='small' icon={<Subtract color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
                             </Box>
+                            <Button icon={<Trash color='dark-4' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                            <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
                         </Box>
+                        
                     </>
                 ))}
-                <CheckOutForm />
-                   <Footer background="#DADADA" pad="small">
-  <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-  <Anchor label="INFORMATION" />
-</Footer> 
+                
+                        <Box justify="end"  border='top'
+                        width="xxlarge" height="medium" direction="row"
+                        pad="medium"> 
+                            <h2>{'Total: ' + totalSum}</h2>
+                        </Box>
+                <InformationForm />
+                <Footer background="#DADADA" pad="small">
+                    <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
+                    <Anchor href="InformationScreen" label="INFORMATION"/>
+                </Footer>
             </Grommet>
         )
     }
 
- }
+}
 
- const header = {
+const header = {
     global: {
-      font: {
-        family: 'Roboto',
-        size: '15px',
-        color: "brand",
-        height: '20px',
-        justify: 'center',
-        align: 'center'
-      },
+        font: {
+            family: 'Roboto',
+            size: '15px',
+            color: "brand",
+            height: '20px',
+            justify: 'center',
+            align: 'center'
+        },
     },
-  };
+};
 
- export default CheckoutScreen;
+export default CheckoutScreen;

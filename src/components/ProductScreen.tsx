@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor} from 'grommet';
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid} from 'grommet';
 import List from './List';
 import { Basket, Home } from 'grommet-icons';
 import { Cart } from './App'
@@ -26,7 +26,12 @@ import { Food } from './App'
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
-                <Button icon={<Home />} hoverIndicator onClick={() => alert('Home page')} />
+                <Menu
+                label='Menu'
+                items={[
+                  { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
+           ]}
+    />
                     <h1>pet store</h1>
                 <Button icon={<Basket />} hoverIndicator onClick={() => alert('Your Basket')} />
                 </Header>
@@ -37,7 +42,7 @@ import { Food } from './App'
                     <List items={this.props.dcfood} addFood={this.props.addFood}/>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-                <Anchor label="INFORMATION" />
+                    <Anchor href="InformationScreen" label="INFORMATION"/>
                 </Footer>       
             </Grommet>
         )

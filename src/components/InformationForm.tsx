@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { Grommet, Box, Form, FormField, TextInput, MaskedInput, Button, grommet, Heading, RadioButtonGroup } from 'grommet'
+import React from 'react'
+import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading, Button } from 'grommet'
 import { deepMerge } from 'grommet/utils';
-
+import PaymentForm from './PaymentForm';
+import ShippingMethods from './ShippingMethods';
 
 const customFormFieldTheme = {
     global: {
@@ -28,9 +29,6 @@ const customFormFieldTheme = {
                 opacity: true
             }
         },
-        content: {
-            // pad: "small",
-        },
         error: {
             background: {
                 color: "status-critical",
@@ -41,11 +39,7 @@ const customFormFieldTheme = {
     }
 };
 
-function CreateOrder() {
-    setTimeout(function () { alert("Your order is done"); }, 2000);
-
-}
-export default class CheckOutForm extends React.Component {
+export default class InformationForm extends React.Component {
     render() {
         return (
             <Grommet full theme={deepMerge(grommet, customFormFieldTheme)}>
@@ -53,17 +47,17 @@ export default class CheckOutForm extends React.Component {
                     <Box width="medium">
                         <Heading level={2} alignSelf="center">Your Information</Heading>
                         <Form>
-                            <FormField label="First Name" name="name" required>
+                            <FormField label="First Name" name="name" required={true}>
                                 <TextInput name="name" />
                             </FormField>
-                            <FormField label="Last Name" name="LastName" required>
+                            <FormField label="Last Name" name="LastName" required={true}>
                                 <TextInput name="LastName" />
                             </FormField>
-                            <FormField label="Mobile Number" name="Number" required>
+                            <FormField label="Mobile Number" name="Number" required={true}>
                                 <TextInput name="Number" />
                             </FormField>
 
-                            <FormField label="Email" name="email" required>
+                            <FormField label="Email" name="email" required={true}>
                                 <MaskedInput
                                     name="email"
                                     mask={[
@@ -75,34 +69,25 @@ export default class CheckOutForm extends React.Component {
                                     ]}
                                 />
                             </FormField>
-                            <FormField label="Country" name="Country" required>
+                            <FormField label="Country" name="Country" required={true}>
                                 <TextInput name="Country" />
                             </FormField>
-                            <FormField label="City" name="City" required>
+                            <FormField label="City" name="City" required={true}>
                                 <TextInput name="City" />
                             </FormField>
-                            <FormField label="Adress" name="Adress" required>
+                            <FormField label="Adress" name="Adress" required={true}>
                                 <TextInput name="Adress" />
                             </FormField>
-                            <FormField label="Postal Code" name="PostalCode" required>
+                            <FormField label="Postal Code" name="PostalCode" required={true}>
                                 <TextInput name="PostalCode" />
                             </FormField>
-                            <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
-                                <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Payment Method</Heading>
-                                <RadioButtonGroup
-                                    name="doc"
-                                    options={['Swish', 'Card', 'Klarna']}
-                                />
-                            </Box>
-                            <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                                <Button type="reset" label="Reset" />
-                                <Button onClick={CreateOrder} type="submit" label="Next" primary />
-                            </Box>
+                            <ShippingMethods />
+                            <PaymentForm />
+                          
                         </Form>
                     </Box>
                 </Box>
             </Grommet>
         )
     }
-
 }
