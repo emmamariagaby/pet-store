@@ -124,6 +124,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <li>Go back to shop</li>
                    </Link>
                       </ul>
+                      <br></br><br></br><br></br><br></br><br></br>
 
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
