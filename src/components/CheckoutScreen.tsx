@@ -81,9 +81,9 @@ class CheckoutScreen extends React.Component<Props, State> {
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="between" align="center"
-                            width="xxlarge" height="medium" direction="row"
-                            pad="medium" border='top' key={food.id}>
-                            <Box width="medium" justify="center" align="center"
+                            width="xxlarge" height="small" direction="row"
+                            pad="medium" border='top'>
+                            <Box width="small" justify="center" align="center"
                                 height="small"
                                 pad="medium">
                                 <img src={food.img} />
@@ -119,13 +119,14 @@ class CheckoutScreen extends React.Component<Props, State> {
 
                 {this.state.checkout && (
                 <InformationForm />)}
-                     <ul className="nav-links">
-                    <Link to='/ProductScreen'>
-                <li>Go back to shop</li>
-                   </Link>
-                      </ul>
+                
+                    <ul className="nav-links">
+                        <Link to='/ProductScreen'>
+                            <li>Go back to shop</li>
+                        </Link>
+                    </ul>
                       <br></br><br></br><br></br><br></br><br></br>
-
+        
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION" />
