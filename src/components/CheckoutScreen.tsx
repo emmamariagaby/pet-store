@@ -14,6 +14,7 @@ interface Props {
 interface State {
     add: boolean
     remove: boolean
+    checkout: boolean
 }
 /**
  * Checkout page with chart, payment method and customer information
@@ -25,6 +26,7 @@ class CheckoutScreen extends React.Component<Props, State> {
         this.state = {
             add: false,
             remove: false,
+            checkout: false
         }
     }
 
@@ -39,12 +41,24 @@ class CheckoutScreen extends React.Component<Props, State> {
         food.total-= food.price
         food.quantity-= 1
     }
+
+    checkout = () => {
+        this.setState({ checkout: true })
+    }
+
+    emptyCart () {
+        if (this.props.cart.length==0) {
+            return 'Cart is empty'
+           
+        }
+    }
     
     render() {
         const totalSum=  this.props.cart.length ? this.props.cart.reduce((total, food) => (
             total + food.total
           ), 0): Number(0)
 
+  
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
@@ -59,7 +73,8 @@ class CheckoutScreen extends React.Component<Props, State> {
                 </Header>
 
                 <Main pad="medium" justify="center" align="center">
-                    <h2>Your cart</h2>
+                    
+                    <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
                 </Main>
 
                 {this.props.cart.map(food => (
@@ -83,16 +98,26 @@ class CheckoutScreen extends React.Component<Props, State> {
                             <Button icon={<Trash color='dark-4' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                             <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
                         </Box>
-                        
                     </>
                 ))}
-                
                         <Box justify="end"  border='top'
-                        width="xxlarge" height="medium" direction="row"
+                        width="xxlarge" height="xsmall" direction="row"
                         pad="medium"> 
-                            <h2>{'Total: ' + totalSum}</h2>
+                            <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
                         </Box>
-                <InformationForm />
+                        <Box justify="center" 
+                        width="xxlarge" height="small" direction="row"
+                        pad="medium"> 
+                            <Box>
+                            {(this.props.cart.length == 0) ? "" : <Button
+                            label="Checkout"
+                            onClick={() => this.checkout()} primary
+                            />}
+                           </Box> 
+                        </Box>
+                       
+                {this.state.checkout && (
+                <InformationForm />)}
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>
