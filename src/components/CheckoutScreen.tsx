@@ -3,8 +3,9 @@ import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
 import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
-import InformationForm from './InformationForm';
+
 import { Link } from 'react-router-dom';
+import InformationForm from './Forms/InformationForm';
 
 interface Props {
     cart: Cart[]
