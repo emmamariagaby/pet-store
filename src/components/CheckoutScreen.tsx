@@ -32,33 +32,33 @@ class CheckoutScreen extends React.Component<Props, State> {
 
     addOne = (food: Food) => {
         this.setState({ add: true })
-            food.total = food.price * food.quantity + food.price
-            food.quantity+= 1  
+        food.total = food.price * food.quantity + food.price
+        food.quantity += 1
     }
 
-    removeOne = (food: Food) =>{
+    removeOne = (food: Food) => {
         this.setState({ remove: true })
-        food.total-= food.price
-        food.quantity-= 1
+        food.total -= food.price
+        food.quantity -= 1
     }
 
     checkout = () => {
         this.setState({ checkout: true })
     }
 
-    emptyCart () {
-        if (this.props.cart.length==0) {
+    emptyCart() {
+        if (this.props.cart.length == 0) {
             return 'Cart is empty'
-           
+
         }
     }
-    
-    render() {
-        const totalSum=  this.props.cart.length ? this.props.cart.reduce((total, food) => (
-            total + food.total
-          ), 0): Number(0)
 
-  
+    render() {
+        const totalSum = this.props.cart.length ? this.props.cart.reduce((total, food) => (
+            total + food.total
+        ), 0) : Number(0)
+
+
         return (
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
@@ -73,7 +73,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 </Header>
 
                 <Main pad="medium" justify="center" align="center">
-                    
+
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
                 </Main>
 
@@ -82,40 +82,40 @@ class CheckoutScreen extends React.Component<Props, State> {
                         <Box justify="between" align="center"
                             width="xxlarge" height="medium" direction="row"
                             pad="medium" border='top'>
-                           <Box width="medium" justify="center" align="center"
-                            height="small"
-                            pad="medium">
+                            <Box width="medium" justify="center" align="center"
+                                height="small"
+                                pad="medium">
                                 <img key={food.id} src={food.img} />
                                 <h2 className="food" key={food.id}>{food.type + ' '}{food.animal}</h2>
-                            </Box>   
-                            <Box width="medium" justify="center" align="center"
-                            height="small" direction="row"
-                            pad="medium">
-                                <Button margin='small' icon={<Add color='brand' size='medium'/>} hoverIndicator onClick={() => this.addOne(food)} />
-                                <h2>{food.quantity}</h2> 
-                                <Button margin='small' icon={<Subtract color='brand' size='medium'/>} hoverIndicator onClick={() => this.removeOne(food)} />
                             </Box>
-                            <Button icon={<Trash color='dark-4' size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                            <Box width="medium" justify="center" align="center"
+                                height="small" direction="row"
+                                pad="medium">
+                                <Button margin='small' icon={<Add color='brand' size='medium' />} hoverIndicator onClick={() => this.addOne(food)} />
+                                <h2>{food.quantity}</h2>
+                                <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
+                            </Box>
+                            <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                             <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
                         </Box>
                     </>
                 ))}
-                        <Box justify="end"  border='top'
-                        width="xxlarge" height="xsmall" direction="row"
-                        pad="medium"> 
-                            <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
-                        </Box>
-                        <Box justify="center" 
-                        width="xxlarge" height="small" direction="row"
-                        pad="medium"> 
-                            <Box>
-                            {(this.props.cart.length == 0) ? "" : <Button
+                <Box justify="end" border='top'
+                    width="xxlarge" height="xsmall" direction="row"
+                    pad="medium">
+                    <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
+                </Box>
+                <Box justify="center"
+                    width="xxlarge" height="small" direction="row"
+                    pad="medium">
+                    <Box>
+                        {(this.props.cart.length == 0) ? "" : <Button
                             label="Checkout"
                             onClick={() => this.checkout()} primary
-                            />}
-                           </Box> 
-                        </Box>
-                       
+                        />}
+                    </Box>
+                </Box>
+
                 {this.state.checkout && (
                 <InformationForm />)}
                      <ul className="nav-links">
@@ -123,9 +123,10 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <li>Go back to shop</li>
                    </Link>
                       </ul>
+
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-                    <Anchor href="InformationScreen" label="INFORMATION"/>
+                    <Anchor href="InformationScreen" label="INFORMATION" />
                 </Footer>
             </Grommet>
         )
