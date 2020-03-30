@@ -24,7 +24,7 @@ import { Basket, Phone, MailOption } from 'grommet-icons';
             
             <Main pad="medium" justify="center" align="center">
               <h2>About Pet Store</h2>
-              <Paragraph>Petfood since 1999. Pet Store is a online store with high quality petfood for cats and dogs.</Paragraph>
+              <Paragraph>Pet Store is a online store with high quality petfood for cats and dogs.</Paragraph>
               <h2>Shipping and Delivery</h2>
               <Paragraph>We at Pet Store strive to always deliver a good experience to our customers. As a customer of Pet Store you can either choose delivery to nearest package agent representative or delivery home to your door.</Paragraph>
               <h2>Returns</h2>
