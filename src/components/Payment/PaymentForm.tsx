@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Box, Button, RadioButtonGroup, Heading, FormField } from 'grommet'
 import Card from './Card';
 import Swish from './Swish';
+import Klarna from './Klarna';
 
 function CreateOrder() {
     setTimeout(function () { alert("Your order is done"); }, 2000);
@@ -18,6 +19,9 @@ export default function PaymentForm() {
     }
     if (value == 'Swish') {
         post = <Swish />
+    }
+    if (value == 'Klarna') {
+        post = <Klarna />
     }
     return (
         <Form>
