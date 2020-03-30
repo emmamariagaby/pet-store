@@ -82,12 +82,12 @@ class CheckoutScreen extends React.Component<Props, State> {
                     <>
                         <Box justify="between" align="center"
                             width="xxlarge" height="medium" direction="row"
-                            pad="medium" border='top'>
+                            pad="medium" border='top' key={food.id}>
                             <Box width="medium" justify="center" align="center"
                                 height="small"
                                 pad="medium">
-                                <img key={food.id} src={food.img} />
-                                <h2 className="food" key={food.id}>{food.type + ' '}{food.animal}</h2>
+                                <img src={food.img} />
+                                <h2 className="food">{food.type + ' '}{food.animal}</h2>
                             </Box>
                             <Box width="medium" justify="center" align="center"
                                 height="small" direction="row"
@@ -97,7 +97,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                 <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
                             </Box>
                             <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
-                            <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
+                            <h2 className="food">{food.total + ' kr'}</h2>
                         </Box>
                     </>
                 ))}
