@@ -4,6 +4,7 @@ import List from './List';
 import { Basket, Home } from 'grommet-icons';
 import { Cart } from './App'
 import { Food } from './App'
+import { Link } from 'react-router-dom';
 
 /**
  * Product page with dog and cat food
@@ -29,7 +30,7 @@ import { Food } from './App'
                 <Menu
                 label='Menu'
                 items={[
-                  { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
+                  { label: 'HOME', href: '/' }
            ]}
     />
                     <h1>pet store</h1>
@@ -40,6 +41,11 @@ import { Food } from './App'
                     <h3>Add petfood to your cart</h3>
                 </Main>
                     <List items={this.props.dcfood} addFood={this.props.addFood}/>
+                    <ul className="nav-links">
+                    <Link to='/CheckoutScreen'>
+                <li>Go to cart</li>
+                   </Link>
+                      </ul>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>

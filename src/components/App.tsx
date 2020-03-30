@@ -97,20 +97,7 @@ export default class App extends React.Component<Props, State> {
     render() {
       return (
         <Router>
-          <div className="App">  
-          <nav>
-        <ul className="nav-links">
-            <Link to='/'>
-            <li>StartScreen</li>
-            </Link>
-            <Link to='/ProductScreen'>
-            <li>ProductScreen</li>
-            </Link>
-            <Link to='/CheckoutScreen'>
-            <li>CheckoutScreen</li>
-            </Link>
-            </ul> 
-        </nav>  
+          <div className="App">   
           <Switch>
             <Route path="/" exact component={StartScreen}>
               <StartScreen />
