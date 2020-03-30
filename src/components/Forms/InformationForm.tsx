@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading, Button } from 'grommet'
 import { deepMerge } from 'grommet/utils';
-import PaymentForm from './PaymentForm';
-import ShippingMethods from './ShippingMethods';
+import PaymentForm from '../Payment/PaymentForm';
+import ShippingMethods from '../Shipping/ShippingMethods';
 
 const customFormFieldTheme = {
     global: {
