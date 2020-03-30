@@ -75,12 +75,15 @@ export default class App extends React.Component<Props, State> {
         }
       }
 
-      addFood = (food: Food)=>{
-        this.setState({
-          cart: [...this.state.cart, food],
-          })
+      addFood = (food: Food) => {
+        if (this.state.cart.find((delDuplicate) => delDuplicate.id === food.id)) {
+        } else {
+          this.setState({
+            cart: [...this.state.cart, food],
+            })
+        }
           food.total = food.price
-          food.quantity+= 1
+          food.quantity += 1
       }
 
       handleRemove = (food: Food) => {
