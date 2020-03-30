@@ -4,7 +4,7 @@ import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
 import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
 import InformationForm from './InformationForm';
-//import InformationForm from './InformationForm'
+import { Link } from 'react-router-dom';
 
 interface Props {
     cart: Cart[]
@@ -65,7 +65,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                     <Menu
                     label='Menu'
                     items={[
-                    { label: 'HOME', href: '/' }, { label: 'SHOP', href: 'ProductScreen' }, { label: 'CART', href: 'CheckoutScreen' }
+                    { label: 'HOME', href: '/' }
                     ]}
                     />
                     <h1>pet store</h1>
@@ -118,6 +118,11 @@ class CheckoutScreen extends React.Component<Props, State> {
                        
                 {this.state.checkout && (
                 <InformationForm />)}
+                     <ul className="nav-links">
+                    <Link to='/ProductScreen'>
+                <li>Go back to shop</li>
+                   </Link>
+                      </ul>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>
