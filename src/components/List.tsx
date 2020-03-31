@@ -13,7 +13,7 @@ class List extends React.Component<Props> {
     render () {
     return (
         <div>
-            <ul>
+            <ul className="grid">
                 {this.props.items.map((item) => { 
                 return <PetFood
                 key={item.id}

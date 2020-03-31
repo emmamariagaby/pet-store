@@ -81,13 +81,13 @@ class CheckoutScreen extends React.Component<Props, State> {
                 {this.props.cart.map(food => (
                     <>
                         <Box justify="between" align="center"
-                            width="xxlarge" height="medium" direction="row"
+                            width="xxlarge" height="small" direction="row"
                             pad="medium" border='top'>
-                            <Box width="medium" justify="center" align="center"
+                            <Box width="small" justify="center" align="center"
                                 height="small"
                                 pad="medium">
-                                <img key={food.id} src={food.img} />
-                                <h2 className="food" key={food.id}>{food.type + ' '}{food.animal}</h2>
+                                <img src={food.img} />
+                                <h2 className="food">{food.type + ' '}{food.animal}</h2>
                             </Box>
                             <Box width="medium" justify="center" align="center"
                                 height="small" direction="row"
@@ -97,7 +97,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                 <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
                             </Box>
                             <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
-                            <h2 className="food" key={food.id}>{food.total + ' kr'}</h2>
+                            <h2 className="food">{food.total + ' kr'}</h2>
                         </Box>
                     </>
                 ))}
@@ -119,13 +119,14 @@ class CheckoutScreen extends React.Component<Props, State> {
 
                 {this.state.checkout && (
                 <InformationForm />)}
-                     <ul className="nav-links">
-                    <Link to='/ProductScreen'>
-                <li>Go back to shop</li>
-                   </Link>
-                      </ul>
+                
+                    <ul className="nav-links">
+                        <Link to='/ProductScreen'>
+                            <li>Go back to shop</li>
+                        </Link>
+                    </ul>
                       <br></br><br></br><br></br><br></br><br></br>
-
+        
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION" />

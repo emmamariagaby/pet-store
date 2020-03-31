@@ -42,10 +42,10 @@ import { Link } from 'react-router-dom';
                 </Main>
                     <List items={this.props.dcfood} addFood={this.props.addFood}/>
                     <ul className="nav-links">
-                    <Link to='/CheckoutScreen'>
-                <li>Go to cart</li>
-                   </Link>
-                      </ul>
+                      <Link to='/CheckoutScreen'>
+                        <li>Go to cart</li>
+                      </Link>
+                    </ul>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>
