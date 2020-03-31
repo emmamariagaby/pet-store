@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Grommet, Button, Box, grommet, Layer } from 'grommet'
-interface Props {
+import { Food } from './App';
 
+interface Props {
+    food: Food
 }
 
 interface State {
@@ -13,15 +15,21 @@ export default class Modal extends Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            showLayer: false
+            showLayer: false,
         }
-        this.handleClick = this.handleClick.bind(this);
+
+        this.handleProductInfo = this.handleProductInfo.bind(this);
     }
-    handleClick() {
+    handleProductInfo() {
         this.setState(prevState => ({
             showLayer: !prevState.showLayer
         }));
+
+
+
     }
+
+
 
     render() {
         return (
@@ -30,7 +38,7 @@ export default class Modal extends Component<Props, State> {
                     primary
                     color="accent-3"
                     label="Show"
-                    onClick={this.handleClick}
+                    onClick={this.handleProductInfo}
 
                 />
                 {this.state.showLayer && (
@@ -39,8 +47,14 @@ export default class Modal extends Component<Props, State> {
                             <Button
                                 primary
                                 label="Close"
-                                onClick={this.handleClick}
+                                onClick={this.handleProductInfo}
+
                             />
+
+                            <img src={this.props.food.img} />
+                            <p>{this.props.food.type}</p>
+                            <p>{this.props.food.price + ' ' + 'kr'}</p>
+                            <p></p>
                         </Box>
                     </Layer>
                 )}

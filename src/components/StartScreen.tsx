@@ -22,7 +22,6 @@ class StartScreen extends React.Component {
           />
           <h1>pet store</h1>
           <Button href="CheckoutScreen" icon={<Basket />} />
-          <Modal />
         </Header>
 
         <Box pad="small" justify="center" align="center">

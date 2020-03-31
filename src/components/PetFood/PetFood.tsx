@@ -42,11 +42,12 @@ export default class PetFood extends React.Component<Props, State> {
                         <img src={this.props.food.img} />
                         <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
                         <li>{this.props.food.price + ' kr'}</li>
-                        <Modal />
+                        <Modal food={this.props.food} />
                         <Button
                             label="Add"
                             onClick={() => this.handleClick()} primary
-                        />{this.state.message}
+                        />
+                        {this.state.message}
                     </Box>
                 </Box>
             </Grommet>
