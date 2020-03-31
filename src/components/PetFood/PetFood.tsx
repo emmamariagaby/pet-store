@@ -33,11 +33,11 @@ export default class PetFood extends React.Component<Props, State> {
         return (
             <Grommet>
                 <Box align="center"
-                    width="small" height="small" direction="row"
-                    border={{ color: '#DADADA', size: 'small' }}
-                    pad="small" margin="small">
+                    width="medium" height="medium" direction="row"
+                    
+                    pad="small">
                     <Box justify="between" align="center"
-                        width="small"height="small"
+                        width="medium"height="medium" border={{ color: '#DADADA', size: 'small' }}
                         pad="small" margin="small">
                         <img src={this.props.food.img}/>
                         <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
