@@ -126,7 +126,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                         </Link>
                     </ul>
                       <br></br><br></br><br></br><br></br><br></br>
-                      </Main>
+                </Main>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION" />
