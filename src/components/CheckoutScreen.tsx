@@ -76,7 +76,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Main pad="medium" justify="center" align="center">
 
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
-                </Main>
+                
 
                 {this.props.cart.map(food => (
                     <>
@@ -126,7 +126,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                         </Link>
                     </ul>
                       <br></br><br></br><br></br><br></br><br></br>
-        
+                </Main>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION" />
