@@ -34,7 +34,6 @@ export default class PetFood extends React.Component<Props, State> {
             <Grommet>
                 <Box align="center"
                     width="medium" height="medium" direction="row"
-                    
                     pad="small">
                     <Box justify="between" align="center"
                         width="medium"height="medium" border={{ color: '#DADADA', size: 'small' }}
