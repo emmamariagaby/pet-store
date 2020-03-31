@@ -36,16 +36,16 @@ import { Link } from 'react-router-dom';
                     <h1>pet store</h1>
                     <Button href="CheckoutScreen" icon={<Basket />} />
                 </Header>
-                <Main pad="small" justify="center" align="center">
+                <Main pad="large" justify="center" align="center">
                     <h2>ONLINE SHOP</h2>
                     <h3>Add petfood to your cart</h3>
-                </Main>
                     <List items={this.props.dcfood} addFood={this.props.addFood}/>
                     <ul className="nav-links">
                       <Link to='/CheckoutScreen'>
                         <li>Go to cart</li>
                       </Link>
                     </ul>
+                </Main>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Anchor href="InformationScreen" label="INFORMATION"/>
