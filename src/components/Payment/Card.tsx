@@ -3,17 +3,17 @@ import { Form, FormField, TextInput } from 'grommet'
 
 export default function Card() {
  
-        const [name, setValue10] = React.useState(localStorage.getItem('PaymentCardName') || '');
+        const [name, setValue10] = React.useState(localStorage.getItem('CardName') || '');
     React.useEffect(() => {
-        localStorage.setItem('PaymentCardName', name);
+        localStorage.setItem('CardName', name);
     }, [name]);
-    const PaymentCardName = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue10(event.target.value);
+    const CardName = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue10(event.target.value);
 
-    const [lastname, setValue11] = React.useState(localStorage.getItem('PaymentCardLastName') || '');
+    const [lastname, setValue11] = React.useState(localStorage.getItem('CardLastName') || '');
     React.useEffect(() => {
-        localStorage.setItem('PaymentCardLastName', lastname);
+        localStorage.setItem('CardLastName', lastname);
     }, [lastname]);
-    const PaymentCardLastName = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue11(event.target.value);
+    const CardLastName = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue11(event.target.value);
 
     const [cardnumber, setValue12] = React.useState(localStorage.getItem('CardNumber') || '');
     React.useEffect(() => {
@@ -36,10 +36,10 @@ export default function Card() {
         return (
             <Form>
                 <FormField label="First Name" name="PaymentCardName" required={true}>
-                    <TextInput name="PaymentCardName" onChange={PaymentCardName}/>
+                    <TextInput name="PaymentCardName" onChange={CardName}/>
                 </FormField>
                 <FormField label="Last Name" name="PaymentCardLastName" required={true}>
-                    <TextInput name="PaymentCardLastName" onChange={PaymentCardLastName}/>
+                    <TextInput name="PaymentCardLastName" onChange={CardLastName}/>
                 </FormField>
                 <FormField label="Card Number" name="CardNumber" required={true}>
                     <TextInput name="CardNumber" onChange={CardNumber}/>

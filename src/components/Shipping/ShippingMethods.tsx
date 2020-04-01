@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Box, Heading, Select } from 'grommet'
-import postnord from './postnord';
 import Postnord from './postnord';
 import Dhl from './dhl';
 import Pickup from './pickup';

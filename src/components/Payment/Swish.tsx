@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import { Form, FormField, TextInput } from 'grommet'
 
 export default function Swish() {
-    const [swish, setValue9] = React.useState(localStorage.getItem('PaymentSwish') || '');
+    const [swish, setValue9] = React.useState(localStorage.getItem('Swish') || '');
     React.useEffect(() => {
-        localStorage.setItem('PaymentSwish', swish);
+        localStorage.setItem('Swish', swish);
     }, [swish]);
-    const PaymentSwish = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue9(event.target.value);
+    const Swish = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue9(event.target.value);
 
     return (
         <Form>
-            <FormField label="Mobile Number" name="PaymentSwish" required={true}>
-                <TextInput name="PaymentSwish" onChange={PaymentSwish}/>
+            <FormField label="Mobile Number" name="Swish" required={true}>
+                <TextInput name="Swish" onChange={Swish}/>
             </FormField>
         </Form>
     )
