@@ -5,9 +5,7 @@ interface Props {
 }
 
 export default class Pickup extends Component<Props> {
-    constructor(props: Props) {
-        super(props)
-    }
+
     render() {
         return (
             <div>

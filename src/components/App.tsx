@@ -2,10 +2,8 @@ import React from "react"
 import StartScreen from "./StartScreen"
 import ProductScreen from "./ProductScreen"
 import CheckoutScreen from "./CheckoutScreen"
-import { Link } from 'react-router-dom';
 import InformationScreen from "./InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { privateEncrypt } from "crypto";
 
 export type Food = {
   id: number

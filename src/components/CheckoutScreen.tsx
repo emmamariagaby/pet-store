@@ -2,7 +2,7 @@ import React from 'react';
 import { Cart } from './App'
 import { Food } from './App'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
-import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
+import { Basket, Trash, Subtract, Add } from 'grommet-icons';
 
 import { Link } from 'react-router-dom';
 import InformationForm from './Forms/InformationForm';
@@ -64,10 +64,10 @@ class CheckoutScreen extends React.Component<Props, State> {
             <Grommet theme={header}>
                 <Header background="brand" pad="large">
                     <Menu
-                    label='Menu'
-                    items={[
-                    { label: 'HOME', href: '/' }
-                    ]}
+                        label='Menu'
+                        items={[
+                            { label: 'HOME', href: '/' }
+                        ]}
                     />
                     <h1>pet store</h1>
                     <Button href="CheckoutScreen" icon={<Basket />} />
@@ -76,56 +76,56 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Main pad="medium" justify="center" align="center">
 
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
-                
 
-                {this.props.cart.map(food => (
-                    <>
-                        <Box justify="between" align="center"
-                            width="xxlarge" height="small" direction="row"
-                            pad="medium" border='top'>
-                            <Box width="small" justify="center" align="center"
-                                height="small"
-                                pad="medium">
-                                <img src={food.img} />
-                                <h2 className="food">{food.type + ' '}{food.animal}</h2>
+
+                    {this.props.cart.map(food => (
+                        <>
+                            <Box justify="between" align="center"
+                                width="xxlarge" height="small" direction="row"
+                                pad="medium" border='top'>
+                                <Box width="small" justify="center" align="center"
+                                    height="small"
+                                    pad="medium">
+                                    <img src={food.img} />
+                                    <h2 className="food">{food.type + ' '}{food.animal}</h2>
+                                </Box>
+                                <Box width="medium" justify="center" align="center"
+                                    height="small" direction="row"
+                                    pad="medium">
+                                    <Button margin='small' icon={<Add color='brand' size='medium' />} hoverIndicator onClick={() => this.addOne(food)} />
+                                    <h2>{food.quantity}</h2>
+                                    <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
+                                </Box>
+                                <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                                <h2 className="food">{food.total + ' kr'}</h2>
                             </Box>
-                            <Box width="medium" justify="center" align="center"
-                                height="small" direction="row"
-                                pad="medium">
-                                <Button margin='small' icon={<Add color='brand' size='medium' />} hoverIndicator onClick={() => this.addOne(food)} />
-                                <h2>{food.quantity}</h2>
-                                <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
-                            </Box>
-                            <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
-                            <h2 className="food">{food.total + ' kr'}</h2>
-                        </Box>
-                    </>
-                ))}
-                <Box justify="end" border='top'
-                    width="xxlarge" height="xsmall" direction="row"
-                    pad="medium">
-                    <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
-                </Box>
-                <Box justify="center"
-                    width="xxlarge" height="small" direction="row"
-                    pad="medium">
-                    <Box>
-                        {(this.props.cart.length == 0) ? "" : <Button
-                            label="Checkout"
-                            onClick={() => this.checkout()} primary
-                        />}
+                        </>
+                    ))}
+                    <Box justify="end" border='top'
+                        width="xxlarge" height="xsmall" direction="row"
+                        pad="medium">
+                        <h2>{(this.props.cart.length == 0) ? "" : "Total: " + totalSum}</h2>
                     </Box>
-                </Box>
+                    <Box justify="center"
+                        width="xxlarge" height="small" direction="row"
+                        pad="medium">
+                        <Box>
+                            {(this.props.cart.length == 0) ? "" : <Button
+                                label="Checkout"
+                                onClick={() => this.checkout()} primary
+                            />}
+                        </Box>
+                    </Box>
 
-                {this.state.checkout && (
-                <InformationForm />)}
-                
+                    {this.state.checkout && (
+                        <InformationForm />)}
+
                     <ul className="nav-links">
                         <Link to='/ProductScreen'>
                             <li>Go back to shop</li>
                         </Link>
                     </ul>
-                      <br></br><br></br><br></br><br></br><br></br>
+                    <br></br><br></br><br></br><br></br><br></br>
                 </Main>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>

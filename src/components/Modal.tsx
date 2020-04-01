@@ -51,7 +51,7 @@ export default class Modal extends Component<Props, State> {
 
                             />
 
-                            <img src={this.props.food.img} />
+                            <img src={this.props.food.img} alt="pet food" />
                             <p>{this.props.food.type}</p>
                             <p>{this.props.food.price + ' ' + 'kr'}</p>
                             <p></p>
