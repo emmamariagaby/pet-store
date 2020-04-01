@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Box, Heading, Select } from 'grommet'
-import postnord from './postnord';
 import Postnord from './postnord';
 import Dhl from './dhl';
 import Pickup from './pickup';
@@ -8,6 +7,10 @@ import Pickup from './pickup';
 
 export default function ShippingMethods() {
     const [value, setValue] = React.useState('Shipping');
+    React.useEffect(() => {
+        localStorage.setItem('option', value);
+    }, [value]);
+    const option = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value);
     let post;
 
     if (value == 'Postnord') {

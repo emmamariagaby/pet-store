@@ -1,37 +1,24 @@
 import React from 'react'
-import { Form, FormField, TextInput, MaskedInput } from 'grommet'
+import { Paragraph, Form, CheckBox} from 'grommet'
+
 
 export default function Klarna() {
-    return (
-        <Form>
-            <FormField label="First Name" name="name" required={true}>
-                <TextInput name="name" />
-            </FormField>
-            <FormField label="Last Name" name="LastName" required={true}>
-                <TextInput name="LastName" />
-            </FormField>
+    const [value, setValue20] = React.useState(localStorage.getItem('Klarna') || 'Betala inom 14 dagar');
+    React.useEffect(() => {
+        localStorage.setItem('Klarna', value);
+    }, [value]);
+    const Klarna = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue20(event.target.value);
+    
+  return (
+    <Form>
+        <Paragraph>Få först. Betala sen.</Paragraph>
+    <CheckBox
+      checked={true}
+      value={value}
+      label="Betala inom 14 dagar"
+      onChange={Klarna}
+    />
+    </Form>
 
-            <FormField label="Email" name="email" required={true}>
-                <MaskedInput
-                    name="email"
-                    mask={[
-                        { regexp: /^[\w\-_.]+$/, placeholder: "example" },
-                        { fixed: "@" },
-                        { regexp: /^[\w]+$/, placeholder: "my" },
-                        { fixed: "." },
-                        { regexp: /^[\w]+$/, placeholder: "com" }
-                    ]}
-                />
-            </FormField>
-            <FormField label="City" name="City" required={true}>
-                <TextInput name="City" />
-            </FormField>
-            <FormField label="Adress" name="Adress" required={true}>
-                <TextInput name="Adress" />
-            </FormField>
-            <FormField label="Postal Code" name="PostalCode" required={true}>
-                <TextInput name="PostalCode" />
-            </FormField>
-        </Form>
-    )
-}
+  )
+  }
