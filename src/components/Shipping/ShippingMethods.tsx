@@ -8,6 +8,10 @@ import Pickup from './pickup';
 
 export default function ShippingMethods() {
     const [value, setValue] = React.useState('Shipping');
+    React.useEffect(() => {
+        localStorage.setItem('option', value);
+    }, [value]);
+    const option = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value);
     let post;
 
     if (value == 'Postnord') {

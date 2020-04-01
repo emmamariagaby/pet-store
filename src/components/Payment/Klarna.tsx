@@ -3,6 +3,10 @@ import { Select, Paragraph, Form} from 'grommet'
 
 export default function Klarna() {
     const [value, setValue] = React.useState('Välj betalsätt');
+    React.useEffect(() => {
+        localStorage.setItem('option', value);
+    }, [value]);
+    const option = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value);
     return (
 <Form>
 <Paragraph>Få först. Betala sen.</Paragraph>
