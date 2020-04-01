@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 
-export default class Pickup extends Component {
+interface Props {
+    cost: string
+}
+
+export default class Pickup extends Component<Props> {
+    constructor(props: Props) {
+        super(props)
+    }
     render() {
         return (
             <div>
                 <p>Pick up your order from our store in an hour</p>
+                <p>{this.props.cost}</p>
             </div>
         )
     }
