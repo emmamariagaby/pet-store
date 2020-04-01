@@ -21,21 +21,4 @@ export default function Klarna() {
     </Form>
 
   )
-
-
-//    const [valuevalue, setValueValue] = React.useState('Välj betalsätt');
-//     React.useEffect(() => {
-//         localStorage.setItem('option', valuevalue);
-//     }, [valuevalue]);
-//     const object = (event: { target: { value: React.SetStateAction<string>; }; }) => setValueValue(event.target.value);
-//     return (
-// <Form>
-// <Paragraph>Få först. Betala sen.</Paragraph>
-//       <Select
-//         options={['Betala inom 14 dagar', 'Betala i slutet av April', 'Månadsfaktura']}
-//         value={valuevalue}
-//         onChange={({ option }) => setValueValue(option)}
-//       />
-//       </Form>
-//     );
   }
