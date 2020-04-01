@@ -1,7 +1,8 @@
 import React from 'react'
-import { Food } from '../App'
+import { data } from '../../Products'
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Grid} from 'grommet';
 import './PetFood.css'
+import { Food } from './../App'
 
 
 interface Props {
@@ -22,7 +23,14 @@ export default class PetFood extends React.Component<Props, State> {
             }
         }
     handleClick(){
-        this.props.addToCart({id: this.props.food.id,type: this.props.food.type, animal: this.props.food.animal, img: this.props.food.img, price: this.props.food.price, total: this.props.food.total, quantity: this.props.food.quantity})
+        this.props.addToCart({
+            id: this.props.food.id, 
+            type: this.props.food.type, 
+            animal: this.props.food.animal, 
+            img: this.props.food.img, 
+            price: this.props.food.price, 
+            total: this.props.food.total, 
+            quantity: this.props.food.quantity})
         
         this.setState({ 
            message: 'Added To Cart'

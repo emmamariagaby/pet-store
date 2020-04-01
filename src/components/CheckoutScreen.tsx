@@ -1,9 +1,9 @@
 import React from 'react';
 import { Cart } from './App'
-import { Food } from './App'
+import { data } from '../Products'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
 import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
-
+import { Food } from './App'
 import { Link } from 'react-router-dom';
 import InformationForm from './Forms/InformationForm';
 
@@ -87,7 +87,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                 height="small"
                                 pad="medium">
                                 <img src={food.img} />
-                                <h2 className="food">{food.type + ' '}{food.animal}</h2>
+                                <h4 className="food">{food.type + ' '}{food.animal}</h4>
                             </Box>
                             <Box width="medium" justify="center" align="center"
                                 height="small" direction="row"
