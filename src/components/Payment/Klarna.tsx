@@ -10,15 +10,15 @@ export default function Klarna() {
     const Klarna = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue20(event.target.value);
     
   return (
-    <Form>
+    <>
         <Paragraph>Få först. Betala sen.</Paragraph>
-    <CheckBox
-      checked={true}
-      value={value}
-      label="Betala inom 14 dagar"
-      onChange={Klarna}
-    />
-    </Form>
+        <CheckBox
+          checked={true}
+          value={value}
+          label="Betala inom 14 dagar"
+          onChange={Klarna}
+        />
+    </>
 
   )
-  }
+}

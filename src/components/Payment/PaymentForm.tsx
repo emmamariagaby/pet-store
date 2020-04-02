@@ -11,7 +11,7 @@ function CreateOrder() {
 
 
 export default function PaymentForm() {
-    const [value, setValue] = React.useState('one');
+    const [value, setValue] = React.useState('Klarna');
     let post;
 
     if (value == 'Card') {
@@ -24,7 +24,7 @@ export default function PaymentForm() {
         post = <Klarna />
     }
     return (
-        <Form>
+        <>
             <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
                 <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Payment Method</Heading>
                 <RadioButtonGroup
@@ -39,6 +39,6 @@ export default function PaymentForm() {
                 <Button type="reset" label="Reset" />
                 <Button onClick={CreateOrder} type="submit" label="Next" primary />
             </Box>
-        </Form>
+        </>
     )
 }

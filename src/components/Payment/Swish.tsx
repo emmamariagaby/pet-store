@@ -9,11 +9,9 @@ export default function Swish() {
     const Swish = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue9(event.target.value);
 
     return (
-        <Form>
-            <FormField label="Mobile Number" name="Swish" required={true}>
-                <TextInput name="Swish" onChange={Swish}/>
-            </FormField>
-        </Form>
+        <FormField label="Mobile Number" name="Swish" required={true}>
+            <TextInput name="Swish" onChange={Swish}/>
+        </FormField>
     )
 }
 

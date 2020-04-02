@@ -7,6 +7,7 @@ import InformationScreen from "./InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { privateEncrypt } from "crypto";
 import { data } from './../Products'
+import { Grommet } from "grommet";
 
 export type Food = {
   id: number
@@ -62,6 +63,7 @@ export default class App extends React.Component<Props, State> {
       }
 
       handleRemove = (food: Food) => {
+        console.log('removing...')
         let index = this.state.cart.indexOf(food);
     
         this.setState({
@@ -76,24 +78,39 @@ export default class App extends React.Component<Props, State> {
     render() {
 
       return (
-        <Router>
-          <div className="App">   
-          <Switch>
-            <Route path="/" exact component={StartScreen}>
-              <StartScreen />
-              </Route>
-              <Route path="/ProductScreen" component={ProductScreen}>
-              <ProductScreen dogCatFood={this.state.dogCatFood} cart={this.state.cart} addFood={this.addFood}/>
-              </Route>
-              <Route path="/CheckoutScreen" component={CheckoutScreen}>
-              <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
-              </Route>
-              <Route path="/InformationScreen" component={InformationScreen}>
-              </Route>
-          </Switch>
-          
-          </div>
-        </Router>
+        <Grommet theme={header}>
+          <Router>
+            <div className="App">   
+            <Switch>
+              <Route path="/" exact component={StartScreen}>
+                <StartScreen />
+                </Route>
+                <Route path="/ProductScreen" component={ProductScreen}>
+                <ProductScreen dogCatFood={this.state.dogCatFood} cart={this.state.cart} addFood={this.addFood}/>
+                </Route>
+                <Route path="/CheckoutScreen" component={CheckoutScreen}>
+                <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
+                </Route>
+                <Route path="/InformationScreen" component={InformationScreen}>
+                </Route>
+            </Switch>
+            
+            </div>
+          </Router>
+        </Grommet>
       )
   }
 }
+
+const header = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '15px',
+      color: "brand",
+      height: '20px',
+      justify: 'center',
+      align: 'center'
+    },
+  },
+};

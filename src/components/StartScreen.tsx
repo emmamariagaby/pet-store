@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 class StartScreen extends React.Component {
   render() {
     return (
-      <Grommet theme={header}>
+      <>
         <Header background="brand" pad="large">
           <Menu
             label='Menu'
@@ -42,25 +42,12 @@ class StartScreen extends React.Component {
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
           <Link to='/InformationScreen'>
-            <Paragraph>INFORMATION</Paragraph>
-          </Link>
+              <Anchor>INFORMATION</Anchor>
+          </Link>  
         </Footer>
-      </Grommet>
+      </>
     )
   }
 }
-
-const header = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '15px',
-      color: "brand",
-      height: '20px',
-      justify: 'center',
-      align: 'center'
-    },
-  },
-};
 
 export default StartScreen;

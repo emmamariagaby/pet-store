@@ -31,6 +31,14 @@ export default class Modal extends Component<Props, State> {
     render() {
         const img = {
             width: "20%"
+          };
+        return (
+            <Grommet theme={grommet}>
+                <Button
+                    label="Info"
+                    onClick={this.handleProductInfo}
+
+                />
           }
           
         return (
@@ -53,6 +61,7 @@ export default class Modal extends Component<Props, State> {
                             <p>{this.props.food.info}</p>
                             <p>{this.props.food.type}</p>
                             <p>{this.props.food.price + ' ' + 'kr'}</p>
+
                             <Link
                             to={{
                                 pathname: "/ProductScreen"
@@ -63,7 +72,9 @@ export default class Modal extends Component<Props, State> {
                                 label="Close"
                                 onClick={this.handleProductInfo}
                             />
+
                             </Link>
+
                             </Box> 
                         </Box>
                     </Layer>
