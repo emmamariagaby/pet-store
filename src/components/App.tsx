@@ -2,12 +2,9 @@ import React from "react"
 import StartScreen from "./Screens/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
 import CheckoutScreen from "./Screens/CheckoutScreen"
-import { Link } from 'react-router-dom';
 import InformationScreen from "./Screens/InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { privateEncrypt } from "crypto";
 import { data } from './../Products'
-import { Grommet } from "grommet";
 
 export type Food = {
   id: number
@@ -78,7 +75,7 @@ export default class App extends React.Component<Props, State> {
     render() {
 
       return (
-        <Grommet theme={header}>
+
           <Router>
             <div className="App">   
             <Switch>
@@ -96,20 +93,6 @@ export default class App extends React.Component<Props, State> {
             </Switch>
             </div>
           </Router>
-        </Grommet>
       )
   }
 }
-
-const header = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '15px',
-      color: "brand",
-      height: '20px',
-      justify: 'center',
-      align: 'center'
-    },
-  },
-};

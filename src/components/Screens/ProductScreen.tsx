@@ -4,6 +4,7 @@ import List from '../List';
 import { Cart } from '../App'
 import { Food } from '../App'
 import { Link } from 'react-router-dom';
+import HeaderBar from '../HeaderBar';
 
 /**
  * Product page with dog and cat food
@@ -33,6 +34,7 @@ class ProductScreen extends React.Component<Props, State> {
   render() {
     return (
       <>
+      <HeaderBar/>
         <Main pad="large" justify="center" align="center">
           <h2>ONLINE SHOP</h2>
           <h3>Add petfood to your cart</h3>

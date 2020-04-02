@@ -2,8 +2,7 @@ import React from 'react';
 import { Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import image from '../assets/images/petstore.jpg';
 import { Link } from 'react-router-dom';
-import { HeaderBar } from '../HeaderBar'
-
+import HeaderBar from '../HeaderBar';
 
 /**
  * Start page of website
@@ -12,7 +11,8 @@ import { HeaderBar } from '../HeaderBar'
 class StartScreen extends React.Component {
   render() {
     return (
-      <HeaderBar>
+      <>
+      <HeaderBar/>
         <Box pad="small" justify="center" align="center">
           <Image
             fit="contain"
@@ -31,8 +31,8 @@ class StartScreen extends React.Component {
           <Link to='/InformationScreen'>
               <Anchor>INFORMATION</Anchor>
           </Link>  
-        </Footer>
-      </HeaderBar>
+        </Footer> 
+        </>
     )
   }
 }

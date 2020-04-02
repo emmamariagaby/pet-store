@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Main, Footer, Anchor, Box, Grid } from 'grommet';
 import { Phone, MailOption } from 'grommet-icons';
 import { Link } from 'react-router-dom';
+import HeaderBar from '../HeaderBar';
 
 /**
  * Customer information page
@@ -11,6 +12,7 @@ class InformationScreen extends React.Component {
   render() {
     return (
    <>
+   <HeaderBar/>
         <Main justify="center" align="center">
           <Grid
             columns={{

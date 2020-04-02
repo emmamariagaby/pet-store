@@ -5,6 +5,7 @@ import { Basket, Trash, Subtract, Add } from 'grommet-icons';
 import { Food } from '../App'
 import { Link } from 'react-router-dom';
 import InformationForm from '../Forms/InformationForm';
+import HeaderBar from '../HeaderBar';
 
 interface Props {
     cart: Cart[]
@@ -61,9 +62,9 @@ class CheckoutScreen extends React.Component<Props, State> {
 
         return (
   <>
+  <HeaderBar/>
 
                 <Main pad="medium" justify="center" align="center">
-
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
 
 

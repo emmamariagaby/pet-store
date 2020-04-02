@@ -1,15 +1,15 @@
 import React from 'react';
 import { Grommet, Heading, Button, Header } from 'grommet';
 import { Link } from 'react-router-dom';
-import { Home, Basket } from 'grommet-icons';
+import { Basket, Shop } from 'grommet-icons';
 
 class HeaderBar extends React.Component {
     render() {
       return (
-        <Grommet theme={header}>
+        <Grommet theme={headerbar}>
              <Header background="brand" pad="large">
-          <Link to='/'>
-            <Button icon={<Home />} />
+          <Link to='/ProductScreen'>
+            <Button icon={<Shop />} />
           </Link>
           <Link to='/'>
             <Heading level={1}>pet store</Heading>
@@ -24,7 +24,7 @@ class HeaderBar extends React.Component {
     }
 }
 
-const header = {
+const headerbar = {
     global: {
       font: {
         family: 'Roboto',
