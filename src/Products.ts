@@ -10,7 +10,9 @@ import { Food } from "./components/App"
             price: 250, 
             total: 0,
             quantity: 0,
-            info: 'Dog Food - Adult dogs of small adult breeds (up to 10 kg) - Older than 10 months.'
+            info: 'Dog Food - Adult dogs of small adult breeds (up to 10 kg) - Older than 10 months.',
+            infoUrl: 'Dry-Mini-Adult'
+
             }, {
             id: 1,
             type: 'Dry, Medium Adult',
@@ -19,16 +21,19 @@ import { Food } from "./components/App"
             price: 250,
             total: 0,
             quantity: 0,
-            info: 'Dog Food - Adult dogs of medium breed (from 11 to 25 kg) - From 12 months to 7 years of age.'
+            info: 'Dog Food - Adult dogs of medium breed (from 11 to 25 kg) - From 12 months to 7 years of age.',
+            infoUrl: 'Dry-Medium-Adult'
             }, {
             id: 2,
-            type: 'Dry',
-            animal: 'Dog, Giant Adult',
+            type: 'Dry, Giant Adult',
+            animal: 'Dog',
             img: 'https://cdn.royalcanin-weshare-online.io/evo5a2QBIYfdNSoCWQT-/v20/packshot-giant-ad-shn17?w=320&auto=compress&fm=jpg',
             price: 300,
             total: 0,
             quantity: 0,
-            info: 'Dog Food - For adult dogs very large breeds (> 45 kg) - Over 18/24 months.'
+            info: 'Dog Food - For adult dogs very large breeds (> 45 kg) - Over 18/24 months.',
+            infoUrl: 'Dog-Giant-Adult'
+
             }, { 
             id: 3,
             type: 'Wet, Mini Adult',
@@ -37,7 +42,9 @@ import { Food } from "./components/App"
             price: 300,
             total: 0,
             quantity: 0,
-            info: 'Dog Food - For adult small breeds (between 1 and 10 kg) - From 10 months to 12 years.'
+            info: 'Dog Food - For adult small breeds (between 1 and 10 kg) - From 10 months to 12 years.',
+            infoUrl: 'Wet-Mini-Adult'
+
             }, {
             id: 4,
             type: 'Wet, Medium Adult',
@@ -46,7 +53,9 @@ import { Food } from "./components/App"
             price: 250, 
             total: 0,
             quantity: 0,
-            info: 'Dog Food - For adult dogs medium sized breeds (between 11 and 25 kg) - From 12 months to 10 years.'
+            info: 'Dog Food - For adult dogs medium sized breeds (between 11 and 25 kg) - From 12 months to 10 years.',
+            infoUrl: 'Wet-Medium-Adult'
+
             }, {
             id: 5,
             type: 'Wet, Maxi Adult',
@@ -55,7 +64,9 @@ import { Food } from "./components/App"
             price: 250,
             total: 0,
             quantity: 0,
-            info: 'Dog food - For adult dogs large adult breeds (between 26 and 44 kg) - From 15 months to 8 years.'
+            info: 'Dog food - For adult dogs large adult breeds (between 26 and 44 kg) - From 15 months to 8 years.',
+            infoUrl: 'Wet-Maxi-Adult'
+
             }, {
             id: 6,
             type: 'Dry, Hairball Care',
@@ -64,7 +75,9 @@ import { Food } from "./components/App"
             price: 250, 
             total: 0,
             quantity: 0,
-            info: 'Cat Food - Adult Cats - Recommended to support skin and fur health.'
+            info: 'Cat Food - Adult Cats - Recommended to support skin and fur health.',
+            infoUrl: 'Dry-Hairball-Care'
+
             }, {
             id: 7,
             type: 'Dry, Indoor',
@@ -73,7 +86,9 @@ import { Food } from "./components/App"
             price: 250,
             total: 0,
             quantity: 0,
-            info: 'Cat food - Balanced feed for older indoor cats (7-12 years).'
+            info: 'Cat food - Balanced feed for older indoor cats (7-12 years).',
+            infoUrl: 'Dry-Indoor'
+
             }, {
             id: 8,
             type: 'Dry',
@@ -82,7 +97,9 @@ import { Food } from "./components/App"
             price: 300,
             total: 0,
             quantity: 0,
-            info: 'Cat food - Balanced feed for adult cats (1-7 years), who often stay outdoors and are active.'
+            info: 'Cat food - Balanced feed for adult cats (1-7 years), who often stay outdoors and are active.',
+            infoUrl: 'Dry-Outdoor'
+
             }, { 
             id: 9,
             type: 'Wet, Hairball Care',
@@ -91,7 +108,9 @@ import { Food } from "./components/App"
             price: 300,
             total: 0,
             quantity: 0,
-            info: 'Cat food - Feeding for adult cats (thin slices in sauce).'
+            info: 'Cat food - Feeding for adult cats (thin slices in sauce).',
+            infoUrl: 'Wet-Hairball-Care'
+
             }, {
             id: 10,
             type: 'Wet, Steriliserad Jelly',
@@ -100,7 +119,9 @@ import { Food } from "./components/App"
             price: 250, 
             total: 0,
             quantity: 0,
-            info: 'Cat Food - Feed for neutered adult cats (thin slices of jelly).'
+            info: 'Cat Food - Feed for neutered adult cats (thin slices of jelly).',
+            infoUrl: 'Wet-Steriliserad-Jelly'
+
             }, {
             id: 11,
             type: 'Wet, Intense Beauty',
@@ -109,6 +130,7 @@ import { Food } from "./components/App"
             price: 250,
             total: 0,
             quantity: 0,
-            info: 'Cat food - Feeding for adult cats (thin slices in jelly).'
+            info: 'Cat food - Feeding for adult cats (thin slices in jelly).',
+             infoUrl: 'Wet-Intense-Beauty' 
             }]
-           
+          
