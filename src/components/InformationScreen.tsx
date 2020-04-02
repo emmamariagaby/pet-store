@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grommet, Header, Menu, Button, Main, Paragraph, Footer, Anchor, Box, Grid } from 'grommet';
-import { Basket, Phone, MailOption, Link } from 'grommet-icons';
+import { Basket, Phone, MailOption } from 'grommet-icons';
+import { Link } from 'react-router-dom';
 
 /**
  * Customer information page
