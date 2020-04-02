@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
-import { Basket, Shop } from 'grommet-icons';
+import { Basket, Shop, Link } from 'grommet-icons';
 import image from '../assets/images/petstore.jpg';
 
 
@@ -13,14 +13,16 @@ class StartScreen extends React.Component {
     return (
       <Grommet theme={header}>
         <Header background="brand" pad="large">
-        <Menu
-        label='Menu'
-        items={[
-         { label: 'SHOP', href: 'ProductScreen' }
-      ]}
-    />
+          <Menu
+            label='Menu'
+            items={[
+              { label: 'SHOP', href: 'ProductScreen' }
+            ]}
+          />
           <h1>pet store</h1>
-          <Button href="CheckoutScreen" icon={<Basket />} />
+          <Link to='/CheckoutScreen'>
+            <Button icon={<Basket />} />
+          </Link>
         </Header>
 
         <Box pad="small" justify="center" align="center">
@@ -38,7 +40,7 @@ class StartScreen extends React.Component {
 
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-          <Anchor href="InformationScreen" label="INFORMATION"/>
+          <Anchor href="InformationScreen" label="INFORMATION" />
         </Footer>
       </Grommet>
     )
