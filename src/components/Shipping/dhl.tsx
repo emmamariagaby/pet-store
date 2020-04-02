@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
+import { Paragraph } from 'grommet'
 
-export default class Dhl extends Component {
+interface Props {
+    cost: string
+}
+
+export default class Dhl extends Component<Props> {
     render() {
         return (
             <div>
-                <p>Your items will be delivered to your local store in 2-4 days</p>
+                <Paragraph>Your items will be delivered in 24 hours</Paragraph>
+                <Paragraph>{this.props.cost}</Paragraph>
             </div>
         )
     }

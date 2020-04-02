@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
+import { Paragraph } from 'grommet'
 
-export default class Postnord extends Component {
+interface Props { cost: string }
+
+export default class Postnord extends Component<Props> {
     render() {
         return (
             <div>
-                <p>Your items will be delivered in 2-5 working days</p>
+                <Paragraph>Your items will be delivered in 24 hours</Paragraph>
+                <Paragraph>{this.props.cost}</Paragraph>
             </div>
         )
     }
