@@ -15,8 +15,7 @@ class InformationScreen extends React.Component {
           <Menu
             label='Menu'
             items={[
-              { label: 'HOME', href: '/' },
-              { label: 'SHOP', href: 'ProductScreen' },
+              { label: 'HOME', href: '/' }
             ]}
           />
           <h1>pet store</h1>
