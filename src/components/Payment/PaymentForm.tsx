@@ -36,8 +36,7 @@ export default function PaymentForm() {
                 {post}
             </Box>
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                <Button type="reset" label="Reset" />
-                <Button onClick={CreateOrder} type="submit" label="Next" primary />
+                <Button onClick={CreateOrder} type="submit" label="Create Order" primary />
             </Box>
         </Form>
     )
