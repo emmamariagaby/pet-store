@@ -43,7 +43,7 @@ class ProductScreen extends React.Component<Props, State> {
           />
           <h1>pet store</h1>
           <Link to='/CheckoutScreen'>
-            <Button href="CheckoutScreen" icon={<Basket />} />
+            <Button icon={<Basket />} />
           </Link>
         </Header>
         <Main pad="large" justify="center" align="center">
