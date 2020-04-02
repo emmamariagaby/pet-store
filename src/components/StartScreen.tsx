@@ -20,9 +20,9 @@ class StartScreen extends React.Component {
             ]}
           />
           <h1>pet store</h1>
-          <Link to='/CheckoutScreen'>
-            <Button icon={<Basket />} />
-          </Link>
+
+          <Button href='/CheckoutScreen' icon={<Basket />} />
+
         </Header>
 
         <Box pad="small" justify="center" align="center">
