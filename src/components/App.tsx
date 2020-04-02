@@ -16,6 +16,7 @@ export type Food = {
   price: number
   total: number
   quantity: number
+  info: string
 }
 
 export type Cart = {
@@ -26,6 +27,7 @@ export type Cart = {
   price: number
   total: number
   quantity: number
+  info: string
 }
   
   interface Props {
