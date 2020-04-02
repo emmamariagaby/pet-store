@@ -5,9 +5,6 @@ interface Props { cost: string }
 
 export default class Postnord extends Component<Props> {
     
-
-   
-
     render() {
         const moment = require('moment')
         const deliveryTime = moment().add(2, 'days').calendar() 
