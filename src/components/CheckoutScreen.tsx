@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cart } from './App'
 import { data } from '../Products'
-import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu } from 'grommet';
+import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu, Paragraph } from 'grommet';
 import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
 import { Food } from './App'
 import { Link } from 'react-router-dom';
@@ -131,8 +131,9 @@ class CheckoutScreen extends React.Component<Props, State> {
                 </Main>
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-                    <Anchor href="InformationScreen" label="INFORMATION" />
-                </Footer>
+                    <Link to='/InformationScreen'>
+                        <Paragraph>INFORMATION</Paragraph>
+                    </Link>                </Footer>
             </Grommet>
         )
     }
