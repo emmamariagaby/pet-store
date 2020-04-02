@@ -1,8 +1,7 @@
 import React from 'react';
 import { Cart } from '../App'
-import { data } from '../../Products'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu, Paragraph } from 'grommet';
-import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
+import { Basket, Trash, Subtract, Add } from 'grommet-icons';
 import { Food } from '../App'
 import { Link } from 'react-router-dom';
 import InformationForm from '../Forms/InformationForm';
@@ -61,19 +60,7 @@ class CheckoutScreen extends React.Component<Props, State> {
 
 
         return (
-            <Grommet theme={header}>
-                <Header background="brand" pad="large">
-                    <Menu
-                        label='Menu'
-                        items={[
-                            { label: 'LEAVE CART', href: '/' }
-                        ]}
-                    />
-                    <h1>pet store</h1>
-                    <Link to='/CheckoutScreen'>
-                        <Button href="CheckoutScreen" icon={<Basket />} />
-                    </Link>
-                </Header>
+  <>
 
                 <Main pad="medium" justify="center" align="center">
 
@@ -135,23 +122,10 @@ class CheckoutScreen extends React.Component<Props, State> {
                         <Anchor>INFORMATION</Anchor>
                     </Link>  
         </Footer>
-            </Grommet>
+            </>
         )
     }
 
 }
-
-const header = {
-    global: {
-        font: {
-            family: 'Roboto',
-            size: '15px',
-            color: "brand",
-            height: '20px',
-            justify: 'center',
-            align: 'center'
-        },
-    },
-};
 
 export default CheckoutScreen;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
-import { Shop, } from 'grommet-icons';
+import { Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import image from '../assets/images/petstore.jpg';
 import { Link } from 'react-router-dom';
+import { HeaderBar } from '../HeaderBar'
 
 
 /**
@@ -12,20 +12,7 @@ import { Link } from 'react-router-dom';
 class StartScreen extends React.Component {
   render() {
     return (
-      <>
-        <Header background="brand" pad="large">
-          <Menu
-            label='Menu'
-            items={[
-              { label: 'SHOP', href: 'ProductScreen' }
-            ]}
-          />
-          <h1>pet store</h1>
-          <Link to='/ProductScreen'>
-            <Button icon={<Shop />} />
-          </Link>
-        </Header>
-
+      <HeaderBar>
         <Box pad="small" justify="center" align="center">
           <Image
             fit="contain"
@@ -45,7 +32,7 @@ class StartScreen extends React.Component {
               <Anchor>INFORMATION</Anchor>
           </Link>  
         </Footer>
-      </>
+      </HeaderBar>
     )
   }
 }

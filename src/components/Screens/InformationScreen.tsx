@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grommet, Header, Menu, Button, Main, Paragraph, Footer, Anchor, Box, Grid } from 'grommet';
-import { Basket, Phone, MailOption } from 'grommet-icons';
+import { Button, Main, Footer, Anchor, Box, Grid } from 'grommet';
+import { Phone, MailOption } from 'grommet-icons';
 import { Link } from 'react-router-dom';
 
 /**
@@ -10,20 +10,7 @@ import { Link } from 'react-router-dom';
 class InformationScreen extends React.Component {
   render() {
     return (
-      <Grommet theme={header}>
-        <Header background="brand" pad="large">
-          <Menu
-            label='Menu'
-            items={[
-              { label: 'HOME', href: '/' }
-            ]}
-          />
-          <h1>pet store</h1>
-          <Link to='/CheckoutScreen'>
-            <Button icon={<Basket />} />
-          </Link>
-        </Header>
-        <br></br>
+   <>
         <Main justify="center" align="center">
           <Grid
             columns={{
@@ -48,22 +35,9 @@ class InformationScreen extends React.Component {
                         <Anchor>INFORMATION</Anchor>
                     </Link>  
         </Footer>
-      </Grommet>
+      </>
     )
   }
 }
-
-const header = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '15px',
-      color: "brand",
-      height: '20px',
-      justify: 'center',
-      align: 'center'
-    },
-  },
-};
 
 export default InformationScreen;

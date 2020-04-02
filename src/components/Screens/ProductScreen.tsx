@@ -1,7 +1,6 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid, Heading } from 'grommet';
+import { Main, Footer, Anchor } from 'grommet';
 import List from '../List';
-import { Basket, Home } from 'grommet-icons';
 import { Cart } from '../App'
 import { Food } from '../App'
 import { Link } from 'react-router-dom';
@@ -33,19 +32,7 @@ class ProductScreen extends React.Component<Props, State> {
 
   render() {
     return (
-      <Grommet theme={header}>
-        {/* <HeaderBar /> */}
-        <Header background="brand" pad="large">
-          <Link to='/'>
-            <Button icon={<Home />} />
-          </Link>
-          <Link to='/'>
-            <Heading level={1}>pet store</Heading>
-          </Link>
-          <Link to='/CheckoutScreen'>
-            <Button icon={<Basket />} />
-          </Link>
-        </Header>
+      <>
         <Main pad="large" justify="center" align="center">
           <h2>ONLINE SHOP</h2>
           <h3>Add petfood to your cart</h3>
@@ -68,22 +55,9 @@ class ProductScreen extends React.Component<Props, State> {
                         <Anchor>INFORMATION</Anchor>
                     </Link>  
         </Footer>
-      </Grommet>
+      </>
     )
   }
 }
-
-const header = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '15px',
-      color: "brand",
-      height: '20px',
-      justify: 'center',
-      align: 'center'
-    },
-  },
-};
 
 export default ProductScreen;
