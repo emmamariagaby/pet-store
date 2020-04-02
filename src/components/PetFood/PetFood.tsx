@@ -1,6 +1,5 @@
 import React from 'react'
-import { data } from '../../Products'
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Grid } from 'grommet';
+import { Button, Box } from 'grommet';
 import './PetFood.css'
 import { Food } from './../App'
 import Modal from '../Modal';

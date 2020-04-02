@@ -86,7 +86,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     <h2>{food.quantity}</h2>
                                     <Button margin='small' icon={<Subtract color='brand' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
                                 </Box>
-                                <Button icon={<Trash color='dark-4' size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                                <Button icon={<Trash color="rgb(124,76,219)" size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                                 <h2 className="food">{food.total + ' kr'}</h2>
                             </Box>
                         </>
