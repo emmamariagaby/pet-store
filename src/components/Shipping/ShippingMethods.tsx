@@ -24,7 +24,7 @@ export default function ShippingMethods() {
     }
 
     return (
-        <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
+        <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={"medium"}>
             <Heading defaultChecked={true} level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
             <Select
                 options={['Postnord', 'DHL', 'Pickup']}
