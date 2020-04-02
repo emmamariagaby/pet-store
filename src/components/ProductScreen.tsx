@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid } from 'grommet';
+import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid, Heading } from 'grommet';
 import List from './List';
 import { Basket, Home } from 'grommet-icons';
 import { Cart } from './App'
@@ -34,14 +34,14 @@ class ProductScreen extends React.Component<Props, State> {
   render() {
     return (
       <Grommet theme={header}>
+        {/* <HeaderBar /> */}
         <Header background="brand" pad="large">
-          <Menu
-            label='Menu'
-            items={[
-              { label: 'LEAVE SHOP', href: '/' }
-            ]}
-          />
-          <h1>pet store</h1>
+          <Link to='/ProductScreen'>
+            <Button icon={<Home />} />
+          </Link>
+          <Link to='/'>
+            <Heading level={1}>pet store</Heading>
+          </Link>
           <Link to='/CheckoutScreen'>
             <Button icon={<Basket />} />
           </Link>

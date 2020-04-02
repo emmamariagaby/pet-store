@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Form, FormField, TextInput } from 'grommet'
+import React from 'react'
+import { FormField, TextInput } from 'grommet'
 
 export default function Card() {
  
@@ -34,7 +34,7 @@ export default function Card() {
     const CardCVVCVC = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue14(event.target.value);
 
         return (
-            <Form>
+            <>
                 <FormField label="First Name" name="PaymentCardName" required={true}>
                     <TextInput name="PaymentCardName" onChange={CardName}/>
                 </FormField>
@@ -50,7 +50,7 @@ export default function Card() {
                 <FormField label="CVV/CVC" name="CVC/CVV" required={true}>
                     <TextInput name="CVC/CVV" onChange={CardCVVCVC}/>
                 </FormField>
-            </Form>
+            </>
         )
     }
 

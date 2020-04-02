@@ -24,16 +24,14 @@ export default function ShippingMethods() {
     }
 
     return (
-        <Form>
-            <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
-                <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
-                <Select
-                    options={['Postnord', 'DHL', 'Pickup']}
-                    value={value}
-                    onChange={({ option }) => setValue(option)}
-                />
-                {post}
-            </Box>
-        </Form>
+        <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
+            <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
+            <Select
+                options={['Postnord', 'DHL', 'Pickup']}
+                value={value}
+                onChange={({ option }) => setValue(option)}
+            />
+            {post}
+        </Box>
     );
 }
