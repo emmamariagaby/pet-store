@@ -94,7 +94,6 @@ export default class App extends React.Component<Props, State> {
                 <Route path="/InformationScreen" component={InformationScreen}>
                 </Route>
             </Switch>
-            
             </div>
           </Router>
         </Grommet>

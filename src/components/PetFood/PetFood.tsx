@@ -43,7 +43,7 @@ export default class PetFood extends React.Component<Props, State> {
 
     render() {
         return (
-            <Grommet>
+            <>
                 <Box align="center"
                     width="medium" height="medium" direction="row"
                     pad="small">
@@ -60,7 +60,7 @@ export default class PetFood extends React.Component<Props, State> {
                         />{this.state.message}
                     </Box>
                 </Box>
-            </Grommet>
+            </>
         )
     }
 }

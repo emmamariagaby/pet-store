@@ -32,15 +32,7 @@ export default class Modal extends Component<Props, State> {
         const img = {
             width: "20%"
           };
-        return (
-            <Grommet theme={grommet}>
-                <Button
-                    label="Info"
-                    onClick={this.handleProductInfo}
 
-                />
-          }
-          
         return (
             <Grommet theme={grommet}>
                 <Link
