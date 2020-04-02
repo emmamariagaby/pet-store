@@ -66,7 +66,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                     <Menu
                         label='Menu'
                         items={[
-                            { label: 'HOME', href: '/' }
+                            { label: 'leave cart', href: '/' }
                         ]}
                     />
                     <h1>pet store</h1>
@@ -132,8 +132,9 @@ class CheckoutScreen extends React.Component<Props, State> {
                 <Footer background="#DADADA" pad="small">
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Link to='/InformationScreen'>
-                        <Paragraph>INFORMATION</Paragraph>
-                    </Link>                </Footer>
+                        <Anchor>INFORMATION</Anchor>
+                    </Link>  
+        </Footer>
             </Grommet>
         )
     }

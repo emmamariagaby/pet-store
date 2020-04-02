@@ -45,7 +45,9 @@ class InformationScreen extends React.Component {
         </Main>
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
-          <Anchor href="InformationScreen" label="INFORMATION" />
+          <Link to='/InformationScreen'>
+                        <Anchor>INFORMATION</Anchor>
+                    </Link>  
         </Footer>
       </Grommet>
     )

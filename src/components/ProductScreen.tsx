@@ -38,7 +38,7 @@ class ProductScreen extends React.Component<Props, State> {
           <Menu
             label='Menu'
             items={[
-              { label: 'HOME', href: '/' }
+              { label: 'leave shop', href: '/' }
             ]}
           />
           <h1>pet store</h1>
