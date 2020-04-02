@@ -3,7 +3,7 @@ import StartScreen from "./Screens/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
 import CheckoutScreen from "./Screens/CheckoutScreen"
 import InformationScreen from "./Screens/InformationScreen"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
 import { data } from './../Products'
 
 export type Food = {
@@ -77,6 +77,7 @@ export default class App extends React.Component<Props, State> {
       return (
 
           <Router>
+            <BrowserRouter basename="App"></BrowserRouter>
             <div className="App">   
             <Switch>
               <Route path="/" exact component={StartScreen}>
