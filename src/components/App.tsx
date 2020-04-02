@@ -1,9 +1,9 @@
 import React from "react"
-import StartScreen from "./StartScreen"
-import ProductScreen from "./ProductScreen"
-import CheckoutScreen from "./CheckoutScreen"
+import StartScreen from "./Screens/StartScreen"
+import ProductScreen from "./Screens/ProductScreen"
+import CheckoutScreen from "./Screens/CheckoutScreen"
 import { Link } from 'react-router-dom';
-import InformationScreen from "./InformationScreen"
+import InformationScreen from "./Screens/InformationScreen"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { privateEncrypt } from "crypto";
 import { data } from './../Products'

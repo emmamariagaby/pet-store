@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor, Grid, Heading } from 'grommet';
-import List from './List';
+import List from '../List';
 import { Basket, Home } from 'grommet-icons';
-import { Cart } from './App'
-import { Food } from './App'
+import { Cart } from '../App'
+import { Food } from '../App'
 import { Link } from 'react-router-dom';
 
 /**
@@ -36,7 +36,7 @@ class ProductScreen extends React.Component<Props, State> {
       <Grommet theme={header}>
         {/* <HeaderBar /> */}
         <Header background="brand" pad="large">
-          <Link to='/ProductScreen'>
+          <Link to='/'>
             <Button icon={<Home />} />
           </Link>
           <Link to='/'>

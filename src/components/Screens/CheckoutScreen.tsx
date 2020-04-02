@@ -1,11 +1,11 @@
 import React from 'react';
-import { Cart } from './App'
-import { data } from '../Products'
+import { Cart } from '../App'
+import { data } from '../../Products'
 import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu, Paragraph } from 'grommet';
 import { Basket, Home, Trash, Subtract, Add, FormDown } from 'grommet-icons';
-import { Food } from './App'
+import { Food } from '../App'
 import { Link } from 'react-router-dom';
-import InformationForm from './Forms/InformationForm';
+import InformationForm from '../Forms/InformationForm';
 
 interface Props {
     cart: Cart[]

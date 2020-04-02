@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grommet, Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
+import { Button, Header, Menu, Main, Paragraph, Box, Image, Footer, Anchor } from 'grommet';
 import { Shop, } from 'grommet-icons';
 import image from '../assets/images/petstore.jpg';
 import { Link } from 'react-router-dom';
