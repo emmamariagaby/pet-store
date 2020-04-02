@@ -8,8 +8,6 @@ function CreateOrder() {
     setTimeout(function () { alert("Your order is done"); }, 2000);
 }
 
-
-
 export default function PaymentForm() {
     const [value, setValue] = React.useState('Klarna');
     let post;
