@@ -11,7 +11,7 @@ function CreateOrder() {
 
 
 export default function PaymentForm() {
-    const [value, setValue] = React.useState('one');
+    const [value, setValue] = React.useState('Klarna');
     let post;
 
     if (value == 'Card') {

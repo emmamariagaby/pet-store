@@ -6,7 +6,7 @@ import Pickup from './pickup';
 
 
 export default function ShippingMethods() {
-    const [value, setValue] = React.useState('Shipping');
+    const [value, setValue] = React.useState('Postnord');
     React.useEffect(() => {
         localStorage.setItem('option', value);
     }, [value]);
@@ -25,7 +25,7 @@ export default function ShippingMethods() {
 
     return (
         <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
-            <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
+            <Heading defaultChecked={true} level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
             <Select
                 options={['Postnord', 'DHL', 'Pickup']}
                 value={value}
