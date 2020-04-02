@@ -55,7 +55,11 @@ class ProductScreen extends React.Component<Props, State> {
           <ul className="nav-links">
           </ul>
 
-
+          <ul className="nav-links">
+                        <Link to='/CheckoutScreen'>
+                            <li>Go to cart</li>
+                        </Link>
+                    </ul>
 
         </Main>
         <Footer background="#DADADA" pad="small">
