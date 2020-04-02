@@ -14,13 +14,13 @@ export default function ShippingMethods() {
     let post;
 
     if (value == 'Postnord') {
-        post = <Postnord />
+        post = <Postnord cost={'Shipping: 29 kr'} />
     }
     if (value == 'DHL') {
-        post = <Dhl />
+        post = <Dhl cost={'Shipping: 99 kr'} />
     }
-    if (value == 'Fast Shipping DHL') {
-        post = <Pickup />
+    if (value == 'Pickup') {
+        post = <Pickup cost={'Shipping: 0 kr'} />
     }
 
     return (
@@ -28,7 +28,7 @@ export default function ShippingMethods() {
             <Box align="center" border={{ color: 'light-5', size: 'small' }} margin={{ top: "medium" }} pad={{ bottom: "medium" }}>
                 <Heading level={2} alignSelf="center" margin={{ top: "xsmall" }} >Shipping</Heading>
                 <Select
-                    options={['Postnord', 'DHL', 'Fast Shipping DHL']}
+                    options={['Postnord', 'DHL', 'Pickup']}
                     value={value}
                     onChange={({ option }) => setValue(option)}
                 />
