@@ -31,7 +31,8 @@ export default class PetFood extends React.Component<Props, State> {
             img: this.props.food.img,
             price: this.props.food.price,
             total: this.props.food.total,
-            quantity: this.props.food.quantity
+            quantity: this.props.food.quantity,
+            info: this.props.food.info
         })
 
         this.setState({

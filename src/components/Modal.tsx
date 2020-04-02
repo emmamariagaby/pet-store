@@ -32,29 +32,30 @@ export default class Modal extends Component<Props, State> {
 
 
     render() {
+        const img = {
+            width: "20%"
+          };
         return (
             <Grommet theme={grommet}>
                 <Button
-                    primary
-                    color="accent-3"
-                    label="Show"
+                    label="Info"
                     onClick={this.handleProductInfo}
 
                 />
                 {this.state.showLayer && (
                     <Layer full animation="fadeIn">
-                        <Box fill background="light-4" align="center" justify="center">
+                        <Box width="large" height="large" align="center" justify="center" fill background="white" pad="medium">
+                        <Box width="large" height="large" align="center" justify="center" pad="medium" border={{ color: '#DADADA', size: 'small' }}>
+                            <img style={img} src={this.props.food.img} alt="pet food" />
+                            <p>{this.props.food.info}</p>
+                            <p>{this.props.food.type}</p>
+                            <p>{this.props.food.price + ' ' + 'kr'}</p>
                             <Button
                                 primary
                                 label="Close"
                                 onClick={this.handleProductInfo}
-
                             />
-
-                            <img src={this.props.food.img} alt="pet food" />
-                            <p>{this.props.food.type}</p>
-                            <p>{this.props.food.price + ' ' + 'kr'}</p>
-                            <p></p>
+                            </Box> 
                         </Box>
                     </Layer>
                 )}
