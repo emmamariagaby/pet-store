@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading, Button } from 'grommet'
+import { Grommet, Box, Form, FormField, TextInput, MaskedInput, grommet, Heading } from 'grommet'
 import { deepMerge } from 'grommet/utils';
 import PaymentForm from '../Payment/PaymentForm';
 import ShippingMethods from '../Shipping/ShippingMethods';

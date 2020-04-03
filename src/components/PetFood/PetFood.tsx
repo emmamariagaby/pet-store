@@ -49,7 +49,7 @@ export default class PetFood extends React.Component<Props, State> {
                     <Box justify="between" align="center"
                         width="medium" height="medium" border={{ color: '#DADADA', size: 'small' }}
                         pad="small" margin="small">
-                        <img src={this.props.food.img} />
+                        <img src={this.props.food.img} alt="food" />
                         <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
                         <li>{this.props.food.price + ' kr'}</li>
                         <Modal food={this.props.food} />

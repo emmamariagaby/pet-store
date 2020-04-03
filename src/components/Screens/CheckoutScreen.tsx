@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cart } from '../App'
-import { Grommet, Button, Header, Main, Box, Footer, Anchor, Menu, Paragraph } from 'grommet';
-import { Basket, Trash, Subtract, Add } from 'grommet-icons';
+import { Button, Main, Box, Footer, Anchor } from 'grommet';
+import { Trash, Subtract, Add } from 'grommet-icons';
 import { Food } from '../App'
 import { Link } from 'react-router-dom';
 import InformationForm from '../Forms/InformationForm';
@@ -61,8 +61,8 @@ class CheckoutScreen extends React.Component<Props, State> {
 
 
         return (
-  <>
-  <HeaderBar/>
+            <>
+                <HeaderBar />
 
                 <Main pad="medium" justify="center" align="center">
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
@@ -121,8 +121,8 @@ class CheckoutScreen extends React.Component<Props, State> {
                     <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
                     <Link to='/InformationScreen'>
                         <Anchor>INFORMATION</Anchor>
-                    </Link>  
-        </Footer>
+                    </Link>
+                </Footer>
             </>
         )
     }

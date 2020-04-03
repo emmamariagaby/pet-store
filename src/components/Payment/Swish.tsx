@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Form, FormField, TextInput } from 'grommet'
+import React from 'react'
+import { FormField, TextInput } from 'grommet'
 
 export default function Swish() {
     const [swish, setValue9] = React.useState(localStorage.getItem('Swish') || '');
@@ -10,7 +10,7 @@ export default function Swish() {
 
     return (
         <FormField label="Mobile Number" name="Swish" required={true}>
-            <TextInput name="Swish" onChange={Swish}/>
+            <TextInput name="Swish" onChange={Swish} />
         </FormField>
     )
 }
