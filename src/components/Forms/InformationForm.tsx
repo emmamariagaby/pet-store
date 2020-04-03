@@ -91,19 +91,19 @@ export default function InformationForm() {
 
 
     return (
-        <Grommet full theme={deepMerge(grommet, customFormFieldTheme)}>
+        <Grommet theme={deepMerge(grommet, customFormFieldTheme)}>
             <Box fill align="center" justify="center" margin={{ bottom: "xlarge" }} >
-                <Box width="medium">
+                <Box>
                     <Heading level={2} alignSelf="center">Your Information</Heading>
                     <Form>
                         <FormField label="First Name" name="name" required={true}>
-                            <TextInput name="name" onChange={Name}/>
+                            <TextInput name="name" onChange={Name} />
                         </FormField>
                         <FormField label="Last Name" name="LastName" required={true}>
-                            <TextInput name="LastName" onChange={LastName}/>
+                            <TextInput name="LastName" onChange={LastName} />
                         </FormField>
                         <FormField label="Mobile Number" name="MobileNumber" required={true}>
-                            <TextInput name="MobileNumber" onChange={MobileNumber}/>
+                            <TextInput name="MobileNumber" onChange={MobileNumber} />
                         </FormField>
 
                         <FormField label="Email" name="email" required={true} onChange={Email}>
@@ -119,16 +119,16 @@ export default function InformationForm() {
                             />
                         </FormField>
                         <FormField label="Country" name="Country" required={true}>
-                            <TextInput name="Country" onChange={Country}/>
+                            <TextInput name="Country" onChange={Country} />
                         </FormField>
                         <FormField label="City" name="City" required={true}>
-                            <TextInput name="City" onChange={City}/>
+                            <TextInput name="City" onChange={City} />
                         </FormField>
                         <FormField label="Address" name="Address" required={true}>
-                            <TextInput name="Address" onChange={Address}/>
+                            <TextInput name="Address" onChange={Address} />
                         </FormField>
                         <FormField label="Postal Code" name="PostalCode" required={true}>
-                            <TextInput name="PostalCode" onChange={PostalCode}/>
+                            <TextInput name="PostalCode" onChange={PostalCode} />
                         </FormField>
                         <ShippingMethods />
                         <PaymentForm />
