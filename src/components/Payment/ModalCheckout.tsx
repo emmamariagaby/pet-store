@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Grommet, Button, Box, grommet, Layer } from 'grommet'
 import { Link } from 'react-router-dom';
 import  { complete }  from '../../CompleteOrder'
+import { Refresh } from 'grommet-icons';
 
 export type Complete = {
     info: string
@@ -33,6 +34,7 @@ export default class ModalCheckout extends Component<Props, State> {
         }
 
         this.completeOrder = this.completeOrder.bind(this);
+        this.refresh = this.refresh.bind(this);
         
        
     }
@@ -41,6 +43,10 @@ export default class ModalCheckout extends Component<Props, State> {
             showLayer: !prevState.showLayer,
             order: this.state.text.info
         }));
+    }
+
+    refresh () {
+        window.location.reload();
     }
 
     render() {
@@ -56,10 +62,21 @@ export default class ModalCheckout extends Component<Props, State> {
                   }}
                 ><Button
                 label="Create order"
-                onClick={this.completeOrder}
                 primary
-                
-            /></Link>
+                onClick={e => {
+                    {
+                      const promise = new Promise(resolve => {
+                        setTimeout(() => {
+                          resolve()
+                        }, 2000)
+                      })
+                      promise.then(() => {
+                        this.completeOrder()
+                        return
+                      })
+                    }
+                  }}/>
+                </Link>
                 
                 {this.state.showLayer && (
                     <Layer full animation="fadeIn">
@@ -76,11 +93,9 @@ export default class ModalCheckout extends Component<Props, State> {
                             <Button
                                 primary
                                 label="Close"
-                                onClick={this.completeOrder}
+                                onClick={this.completeOrder && this.refresh}
                             />
-
                             </Link>
-
                             </Box> 
                         </Box>
                     </Layer>
