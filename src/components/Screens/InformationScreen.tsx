@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Main, Footer, Anchor, Box, Grid } from 'grommet';
-import { Phone, MailOption } from 'grommet-icons';
+import { Phone, MailOption, Location } from 'grommet-icons';
 import { Link } from 'react-router-dom';
 import HeaderBar from '../HeaderBar';
 
@@ -27,7 +27,7 @@ class InformationScreen extends React.Component {
             <Box pad="large" background="white"><h2>Methods of Payment</h2>Swish <br></br> Card <br></br> Klarna</Box>
             <Box pad="large" background="white"><h2>Customer service</h2>We at Pet Store always do our best to help our customers. Do not hesitate to contact us by e-mail or telephone, if you have questions about your order. Pet Store's customer service is manned weekdays between 08:00 and 17:00. <br></br> <br></br> E-mail: info@petstore.se Telephone: 010-206 78 80</Box>
             <Box pad="large" background="white"><h2>Contact</h2><Button icon={<MailOption />} />info@petstore.se <br></br><Button icon={<Phone />} />010-206 78 80 <br></br> Phone manned weekdays between 08:00 and 17:00</Box>
-            <Box pad="large" background="white"><h2>Address</h2>Pet Store AB<br></br>Herkulesgatan 7B <br></br>417 03 Göteborg</Box>
+          <Box pad="large" background="white"><h2>Address</h2><Button icon={<Location /> }/>Pet Store AB<br></br>Herkulesgatan 7B <br></br>417 03 Göteborg</Box>
             <Box pad="large" background="white"><h2>GDPR</h2>Pet Store process personal data in order to nurture customer relationships, operating our business, making analysis and product development and online services and customer platforms. Pet Store may use information about where the user's device is located (location information) to provide parts of the service based on geographical location and to facilitate targeted advertising.</Box>
           </Grid>
         </Main>
