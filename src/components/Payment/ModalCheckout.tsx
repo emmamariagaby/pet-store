@@ -55,7 +55,7 @@ export default class ModalCheckout extends Component<Props, State> {
                     pathname: "/CheckoutScreen"
                   }}
                 ><Button
-                label="Complete"
+                label="Create order"
                 onClick={this.completeOrder}
                 primary
                 
