@@ -1,0 +1,9 @@
+@media (max-device-width: 480px){
+   
+        h2 {
+            font-size: 1rem; 
+        }
+        h4 {
+            font-size: 0.8rem
+        }
+}
