@@ -9,7 +9,7 @@ export default class Dhl extends Component<Props> {
 
     render() {
         const moment = require('moment')
-        const deliveryTime = moment().add(2, 'days').calendar() 
+        const deliveryTime = moment().add(1, 'days').calendar() 
 
         return (
             <div>

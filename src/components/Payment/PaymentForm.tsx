@@ -3,6 +3,7 @@ import { Box, Button, RadioButtonGroup, Heading } from 'grommet'
 import Card from './Card';
 import Swish from './Swish';
 import Klarna from './Klarna';
+import ModalCheckout from './ModalCheckout';
 
 function CreateOrder() {
     setTimeout(function () { alert("Your order is done"); }, 2000);
@@ -35,8 +36,9 @@ export default function PaymentForm() {
             </Box>
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
                 <Button type="reset" label="Reset" />
-                <Button onClick={CreateOrder} type="submit" label="Next" primary />
+                <ModalCheckout />
             </Box>
+           
         </>
     )
 }
