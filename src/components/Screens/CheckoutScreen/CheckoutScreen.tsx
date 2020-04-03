@@ -1,11 +1,12 @@
 import React from 'react';
-import { Cart } from '../App'
+import { Cart } from '../../App'
 import { Button, Main, Box, Footer, Anchor } from 'grommet';
 import { Trash, Subtract, Add } from 'grommet-icons';
-import { Food } from '../App'
+import { Food } from '../../App'
 import { Link } from 'react-router-dom';
-import InformationForm from '../Forms/InformationForm';
-import HeaderBar from '../HeaderBar';
+import InformationForm from '../../Forms/InformationForm';
+import HeaderBar from '../../HeaderBar';
+import './CheckoutScreen.css'
 
 interface Props {
     cart: Cart[]
@@ -63,7 +64,6 @@ class CheckoutScreen extends React.Component<Props, State> {
         return (
             <>
                 <HeaderBar />
-
                 <Main pad="medium" justify="center" align="center">
                     <h2>{(this.props.cart.length == 0) ? "Shopping cart is empty" : "Your cart"}</h2>
 
@@ -86,7 +86,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                                     <h2>{food.quantity}</h2>
                                     <Button margin='small' icon={<Subtract color='rgb(124,76,219)' size='medium' />} hoverIndicator onClick={() => this.removeOne(food)} />
                                 </Box>
-                                <Button icon={<Trash color="rgb(124,76,219)" size='medium' />} hoverIndicator onClick={() => this.props.handleRemove(food)} />
+                                <Button icon={<Trash color="rgb(124,76,219)" size='medium'/>} hoverIndicator onClick={() => this.props.handleRemove(food)} />
                                 <h2 className="food">{food.total + ' kr'}</h2>
                             </Box>
                         </>

@@ -1,7 +1,7 @@
 import React from "react"
 import StartScreen from "./Screens/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
-import CheckoutScreen from "./Screens/CheckoutScreen"
+import CheckoutScreen from "./Screens/CheckoutScreen/CheckoutScreen"
 import InformationScreen from "./Screens/InformationScreen"
 import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
 import { data } from './../Products'
