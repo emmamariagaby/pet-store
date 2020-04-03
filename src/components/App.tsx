@@ -60,7 +60,6 @@ export default class App extends React.Component<Props, State> {
       }
 
       handleRemove = (food: Food) => {
-        console.log('removing...')
         let index = this.state.cart.indexOf(food);
     
         this.setState({
