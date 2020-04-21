@@ -170,6 +170,7 @@ class CheckoutScreen extends React.Component<Props, State> {
           <br></br>
           <br></br>
         </Main>
+        <div className="footer">
         <Footer background="#DADADA" pad="small">
           <h5>
             Created by<br></br>emmamariagaby emmbla louisebackstrom @ github
@@ -178,6 +179,7 @@ class CheckoutScreen extends React.Component<Props, State> {
             <Anchor>INFORMATION</Anchor>
           </Link>
         </Footer>
+        </div>
       </>
     )
   }
