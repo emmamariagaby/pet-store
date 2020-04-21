@@ -1,5 +1,5 @@
 import React from "react"
-import StartScreen from "./Screens/StartScreen"
+import StartScreen from "./Screens/StartScreen/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
 import CheckoutScreen from "./Screens/CheckoutScreen/CheckoutScreen"
 import InformationScreen from "./Screens/InformationScreen"
