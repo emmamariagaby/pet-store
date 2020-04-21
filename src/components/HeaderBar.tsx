@@ -12,7 +12,8 @@ class HeaderBar extends React.Component {
             <Button icon={<Menu />} />
           </Link>
           <Link to='/'>
-            <Heading level={1}>pet store</Heading>
+            <Heading level={1} textAlign="center"
+            alignSelf="center">pet store</Heading>
           </Link>
           <Link to='/CheckoutScreen'>
             <Button icon={<Basket />} />
