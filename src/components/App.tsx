@@ -3,8 +3,9 @@ import StartScreen from "./Screens/StartScreen/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
 import CheckoutScreen from "./Screens/CheckoutScreen/CheckoutScreen"
 import InformationScreen from "./Screens/InformationScreen"
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { data } from './../Products'
+import { Grommet, grommet } from "grommet"
 
 export type Food = {
   id: number
@@ -75,24 +76,25 @@ export default class App extends React.Component<Props, State> {
 
       return (
 
-          <Router>
-            <BrowserRouter basename="App"></BrowserRouter>
+          <Grommet theme={grommet}>
+            <BrowserRouter basename="App">
             <div className="App">   
             <Switch>
               <Route path="/" exact component={StartScreen}>
                 <StartScreen />
-                </Route>
-                <Route path="/ProductScreen" component={ProductScreen}>
+              </Route>
+              <Route path="/ProductScreen" component={ProductScreen}>
                 <ProductScreen dogCatFood={this.state.dogCatFood} cart={this.state.cart} addFood={this.addFood}/>
-                </Route>
-                <Route path="/CheckoutScreen" component={CheckoutScreen}>
+              </Route>
+              <Route path="/CheckoutScreen" component={CheckoutScreen}>
                 <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
-                </Route>
+              </Route>
                 <Route path="/InformationScreen" component={InformationScreen}>
-                </Route>
+              </Route>
             </Switch>
             </div>
-          </Router>
+            </BrowserRouter>
+          </Grommet>
       )
   }
 }

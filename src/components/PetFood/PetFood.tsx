@@ -3,6 +3,7 @@ import { Button, Box } from 'grommet';
 import './PetFood.css'
 import { Food } from './../App'
 import Modal from '../Modal';
+import { Link } from 'react-router-dom';
 
 
 interface Props {
@@ -42,24 +43,24 @@ export default class PetFood extends React.Component<Props, State> {
 
     render() {
         return (
-            <>
-                <Box align="center"
-                    width="medium" height="medium" direction="row"
-                    pad="small">
-                    <Box justify="between" align="center"
-                        width="medium" height="medium" border={{ color: '#DADADA', size: 'small' }}
-                        pad="small" margin="small">
-                        <img src={this.props.food.img} alt="food" />
-                        <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
-                        <li>{this.props.food.price + ' kr'}</li>
-                        <Modal food={this.props.food} />
-                        <Button
-                            label="Add"
-                            onClick={() => this.handleClick()} primary
-                        />{this.state.message}
-                    </Box>
+            <Box align="center"
+                width="medium" height="medium" direction="row"
+                pad="small">
+                <Box justify="between" align="center"
+                    width="medium" height="medium" border={{ color: '#DADADA', size: 'small' }}
+                    pad="small" margin="small">
+                    <img src={this.props.food.img} alt="food" />
+                    <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
+                    <li>{this.props.food.price + ' kr'}</li>
+                    <Link to={"/ProductScreen/" + this.props.food.infoUrl}>
+                        <Button label="Info"/>
+                    </Link> 
+                    <Button
+                        label="Add"
+                        onClick={() => this.handleClick()} primary
+                    />{this.state.message}
                 </Box>
-            </>
+            </Box>
         )
     }
 }

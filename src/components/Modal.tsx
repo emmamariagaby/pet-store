@@ -1,77 +1,48 @@
 import React, { Component } from 'react'
-import { Grommet, Button, Box, grommet, Layer } from 'grommet'
+import { Button, Box, Layer } from 'grommet'
 import { Food } from './App';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import { data } from './../Products'
 
-
-interface Props {
-    food: Food
+interface Params {
+    infoUrl: string
 }
 
-interface State {
-    showLayer: boolean
-}
+interface Props extends RouteComponentProps<Params> {}
 
-
-export default class Modal extends Component<Props, State> {
-    constructor(props: Props) {
-        super(props)
-        this.state = {
-            showLayer: false,
-        }
-
-        this.handleProductInfo = this.handleProductInfo.bind(this);
-    }
-    handleProductInfo() {
-        this.setState(prevState => ({
-            showLayer: !prevState.showLayer
-        }));
-    }
+export default class Modal extends Component<Props> {
 
     render() {
         const img = {
             width: "20%"
-          };
+        };
+
+        const { params } = this.props.match
+        const food = data.find(product => product.infoUrl === params.infoUrl)
+        if (!food) {
+            return (
+                <Layer full animation="fadeIn">
+                    <h3>Tyvärr finns inte produkten som du letar efter...</h3>
+                </Layer>
+            )
+        }
 
         return (
-            <Grommet theme={grommet}>
-                <Link
-                  to={{
-                    pathname: "/ProductScreen/" + this.props.food.infoUrl
-                  }}
-                ><Button
-                label="Info"
-                onClick={this.handleProductInfo}
-                
-            /></Link>
-                
-                {this.state.showLayer && (
-                    <Layer full animation="fadeIn">
-                        <Box width="large" height="large" align="center" justify="center" fill background="white" pad="medium">
-                        <Box width="large" height="large" align="center" justify="center" pad="medium" border={{ color: '#DADADA', size: 'small' }}>
-                            <img style={img} src={this.props.food.img} alt="pet food" />
-                            <p>{this.props.food.info}</p>
-                            <p>{this.props.food.type}</p>
-                            <p>{this.props.food.price + ' ' + 'kr'}</p>
+            <Layer full animation="fadeIn">
+                <Box width="large" height="large" align="center" justify="center" fill background="white" pad="medium">
+                <Box width="large" height="large" align="center" justify="center" pad="medium" border={{ color: '#DADADA', size: 'small' }}>
+                    <img style={img} src={food.img} alt="pet food" />
+                    <p>{food.info}</p>
+                    <p>{food.type}</p>
+                    <p>{food.price + ' ' + 'kr'}</p>
 
-                            <Link
-                            to={{
-                                pathname: "/ProductScreen"
-                            }}
-                            >
-                            <Button
-                                primary
-                                label="Close"
-                                onClick={this.handleProductInfo}
-                            />
+                    <Link to="/ProductScreen">
+                        <Button primary label="Close" />
+                    </Link>
 
-                            </Link>
-
-                            </Box> 
-                        </Box>
-                    </Layer>
-                )}
-            </Grommet >
+                    </Box> 
+                </Box>
+            </Layer>
         )
     }
 }

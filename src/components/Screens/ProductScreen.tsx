@@ -3,8 +3,9 @@ import { Main, Footer, Anchor } from 'grommet';
 import List from '../List';
 import { Cart } from '../App'
 import { Food } from '../App'
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import HeaderBar from '../HeaderBar';
+import Modal from '../Modal';
 
 /**
  * Product page with dog and cat food
@@ -45,18 +46,21 @@ class ProductScreen extends React.Component<Props, State> {
           </ul>
 
           <ul className="nav-links">
-                        <Link to='/CheckoutScreen'>
-                            <li>Go to cart</li>
-                        </Link>
-                    </ul>
+              <Link to='/CheckoutScreen'>
+                  <li>Go to cart</li>
+              </Link>
+          </ul>
 
         </Main>
         <Footer background="#DADADA" pad="small">
           <h5>Created by<br></br>emmamariagaby emmbla louisebackstrom @ github</h5>
           <Link to='/InformationScreen'>
-                        <Anchor>INFORMATION</Anchor>
-                    </Link>  
+              <Anchor>INFORMATION</Anchor>
+          </Link>  
         </Footer>
+        
+        <Route path="/ProductScreen/:infoUrl" component={Modal}/>
+       
       </>
     )
   }
