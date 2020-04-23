@@ -13,6 +13,7 @@ export type CompleteOrder = {
 }
 
 interface Props {
+    clearCart: () => void;
 }
 
 interface State {
@@ -27,7 +28,7 @@ export default class ModalCheckout extends Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            showLayer: false,
+            showLayer: true,
             text: complete,
             order: '',
             random: Math.floor(Math.random() * 100000) + 1000
@@ -56,7 +57,7 @@ export default class ModalCheckout extends Component<Props, State> {
 
         return (
             <Grommet theme={grommet}>
-                <Link
+                {/* <Link
                     to={{
                         pathname: "/CheckoutScreen"
                     }}
@@ -76,24 +77,25 @@ export default class ModalCheckout extends Component<Props, State> {
                             })
                         }
                     }} />
-                </Link>
+                </Link> */}
 
                 {this.state.showLayer && (
                     <Layer full animation="fadeIn">
                         <Box width="large" height="large" align="center" justify="center" fill background="white" pad="medium">
                             <Box width="large" height="large" align="center" justify="center" pad="medium" border={{ color: '#DADADA', size: 'small' }}>
 
-                                <p>{this.state.order + this.state.random}</p>
+                                <p>{this.state.text.info + this.state.random}</p>
 
                                 <Link
                                     to={{
-                                        pathname: "/CheckoutScreen"
+                                        pathname: "/"
                                     }}
                                 >
                                     <Button
                                         primary
                                         label="Close"
-                                        onClick={this.completeOrder && this.refresh}
+                                        // onClick={this.completeOrder && this.refresh}
+                                        onClick={this.props.clearCart}
                                     />
                                 </Link>
                             </Box>

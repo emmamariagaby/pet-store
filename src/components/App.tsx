@@ -3,6 +3,7 @@ import StartScreen from "./Screens/StartScreen/StartScreen"
 import ProductScreen from "./Screens/ProductScreen"
 import CheckoutScreen from "./Screens/CheckoutScreen/CheckoutScreen"
 import InformationScreen from "./Screens/InformationScreen"
+import ModalCheckout from "./Payment/ModalCheckout";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { data } from './../Products'
 import { Grommet, grommet } from "grommet"
@@ -71,6 +72,10 @@ export default class App extends React.Component<Props, State> {
         })
       }
 
+      clearCart = () => {
+        this.setState({cart: []})
+      }
+
      
     render() {
 
@@ -80,16 +85,20 @@ export default class App extends React.Component<Props, State> {
             <BrowserRouter basename="App">
             <div className="App">   
             <Switch>
-              <Route path="/" exact component={StartScreen}>
+              <Route exact path="/" >
                 <StartScreen />
               </Route>
-              <Route path="/ProductScreen" component={ProductScreen}>
+              <Route path="/ProductScreen">
                 <ProductScreen dogCatFood={this.state.dogCatFood} cart={this.state.cart} addFood={this.addFood}/>
               </Route>
-              <Route path="/CheckoutScreen" component={CheckoutScreen}>
+              <Route path="/OrderConfirmation">
+               <ModalCheckout clearCart={this.clearCart} />
+              </Route>
+              
+              <Route path="/CheckoutScreen" >
                 <CheckoutScreen handleRemove={this.handleRemove} cart={this.state.cart}/>
               </Route>
-                <Route path="/InformationScreen" component={InformationScreen}>
+                <Route path="/InformationScreen" >
               </Route>
             </Switch>
             </div>

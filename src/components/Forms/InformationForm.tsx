@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 
 import { Box, Button, Grommet, Form, FormField, TextInput } from 'grommet'
 import { grommet } from 'grommet/themes'
@@ -113,11 +114,28 @@ export default function App() {
     target: { value: React.SetStateAction<string> }
   }) => setValue8(event.target.value)
 
+  const history = useHistory();
+
+  const handleSubmit = (event: React.FormEvent<Element>) => {
+    event.preventDefault();
+
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+          resolve()
+      }, 2000)
+  })
+    promise.then(() => {
+      history.push("./OrderConfirmation")
+      return
+  })
+    
+  }
+
   return (
     <Grommet theme={deepMerge(grommet, customFormFieldTheme)}>
       <Box fill align="center" justify="center">
         <Box width="medium">
-          <Form validate="blur" onSubmit={() => prompt('sdfsdf')}>
+          <Form validate="blur" onSubmit={handleSubmit}>
             <FormField label="Name" name="name" required>
               <TextInput name="name" type="name" onChange={Name} required />
             </FormField>

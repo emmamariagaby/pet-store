@@ -36,7 +36,7 @@ export default function PaymentForm() {
             </Box>
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
                 <Button type="reset" label="Reset" />
-                <ModalCheckout />
+                {/* <ModalCheckout /> */}
             </Box>
            
         </>
