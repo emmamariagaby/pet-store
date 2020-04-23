@@ -2,5 +2,5 @@ import { Complete } from "./components/Payment/ModalCheckout"
 
 export const complete: Complete = {
     
-        info: 'Tack för din order! Ditt ordernummer är: '
+        info: 'We look forward to continuing serving you as a valued customer!' + ' Order number: '
 }
