@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 import { Box, Button, Grommet, Form, FormField, TextInput } from 'grommet'
@@ -117,19 +117,22 @@ export default function App() {
   const history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<Element>) => {
+    setdisabled(true)
     event.preventDefault();
 
     const promise = new Promise(resolve => {
       setTimeout(() => {
-          resolve()
+        resolve()
       }, 2000)
-  })
+    })
     promise.then(() => {
       history.push("./OrderConfirmation")
       return
-  })
-    
+    })
+
   }
+  const [disabled, setdisabled] = useState(false)
+
 
   return (
     <Grommet theme={deepMerge(grommet, customFormFieldTheme)}>
@@ -198,7 +201,7 @@ export default function App() {
             <PaymentForm />
 
             <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-              <Button type="submit" label="Create Order" primary />
+              <Button type="submit" label="Create Order" disabled={disabled} primary />
             </Box>
           </Form>
         </Box>
