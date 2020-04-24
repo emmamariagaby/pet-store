@@ -36,9 +36,12 @@ export default class ModalCheckout extends Component<Props, State> {
 
         this.completeOrder = this.completeOrder.bind(this);
         this.refresh = this.refresh.bind(this);
-
-
     }
+
+    componentDidMount() {
+        this.props.clearCart();
+    }
+
     completeOrder() {
         this.setState(prevState => ({
             showLayer: !prevState.showLayer,
