@@ -3,10 +3,9 @@ PET STORE
 Pet Store is a webb-store, where you can online shop petfood.
 This project is built with Create-React-App, TypeScript and Grommet Design System.
 
-Vi har valt att göra två avgränsningar, då vi har tagit oss an att få ihop de allra nödvändigaste funktionerna för en webbshop. Detta pga tidsbrist och erfarenhet i projektgruppen. 
+Vi har valt att göra en avgränsning, då vi har tagit oss an att få ihop de allra nödvändigaste funktionerna för en webbshop. Detta pga tidsbrist och erfarenhet i projektgruppen. 
 Avgränsningar: 
 1. Order samlar ej varukorg och visar upp för kund
-2. I varukorg går det att lägga till och ta bort produkter med + och -, den fortsätter att räkna bakåt efter 0.
 
 ***********************************************************************************
 
