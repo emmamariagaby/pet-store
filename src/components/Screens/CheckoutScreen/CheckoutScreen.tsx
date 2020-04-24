@@ -123,7 +123,7 @@ class CheckoutScreen extends React.Component<Props, State> {
                   hoverIndicator
                   onClick={() => this.props.handleRemove(food)}
                 />
-                <h2 className="food">{food.total + ' kr'}</h2>
+                <h2 className="food">{food.total + ' SEK'}</h2>
               </Box>
             </>
           ))}
@@ -135,7 +135,7 @@ class CheckoutScreen extends React.Component<Props, State> {
             direction="row"
             pad="medium"
           >
-            <h2>{this.props.cart.length == 0 ? '' : 'Total: ' + totalSum}</h2>
+            <h2>{this.props.cart.length == 0 ? '' : 'Total: ' + totalSum + ' SEK'}</h2>
           </Box>
           <Box
             justify="center"

@@ -43,7 +43,7 @@ const customFormFieldTheme = {
   },
 }
 
-export default function App() {
+export default function InformationForm() {
   const [lastName, setValue1] = React.useState(
     localStorage.getItem('LastName') || ''
   )

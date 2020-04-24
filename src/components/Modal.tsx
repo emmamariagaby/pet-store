@@ -34,7 +34,7 @@ export default class Modal extends Component<Props> {
                     <img style={img} src={food.img} alt="pet food" />
                     <p>{food.info}</p>
                     <p>{food.type}</p>
-                    <p>{food.price + ' ' + 'kr'}</p>
+                    <p>{food.price + ' SEK'}</p>
 
                     <Link to="/ProductScreen">
                         <Button primary label="Close" />

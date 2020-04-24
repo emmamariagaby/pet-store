@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 interface Props {
     food: Food
     addToCart: (food: Food) => void
-
 }
 
 interface State {
@@ -46,12 +45,14 @@ export default class PetFood extends React.Component<Props, State> {
             <Box align="center"
                 width="medium" height="medium" direction="row"
                 pad="small">
+                <Box margin="small">
+                <div className="product">
                 <Box justify="between" align="center"
                     width="medium" height="medium" border={{ color: '#DADADA', size: 'small' }}
                     pad="small" margin="small">
                     <img src={this.props.food.img} alt="food" />
                     <li>{this.props.food.type + ' '} {this.props.food.animal}</li>
-                    <li>{this.props.food.price + ' kr'}</li>
+                    <li>{this.props.food.price + ' SEK'}</li>
                     <Link to={"/ProductScreen/" + this.props.food.infoUrl}>
                         <Button label="Info"/>
                     </Link> 
@@ -59,6 +60,8 @@ export default class PetFood extends React.Component<Props, State> {
                         label="Add"
                         onClick={() => this.handleClick()} primary
                     />{this.state.message}
+                </Box>
+                </div>
                 </Box>
             </Box>
         )
